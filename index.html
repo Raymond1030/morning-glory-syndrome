@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>牵牛花综合征 | Morning Glory Syndrome</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+  :root {
+    --primary: #0B5345;
+    --secondary: #148F77;
+    --accent: #1ABC9C;
+    --light: #D1F2EB;
+    --bg: #F8FFFE;
+    --dark: #1C2833;
+    --coral: #E74C3C;
+    --gold: #F39C12;
+    --gray: #5D6D7E;
+    --light-gray: #EBF5FB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--dark);
+    background: var(--bg);
+    line-height: 1.8;
+  }
+
+  /* ===== NAVIGATION ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(11, 83, 69, 0.95);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    padding: 0 2rem;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  nav .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    height: 64px;
+  }
+
+  nav .logo {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: #fff; letter-spacing: 2px;
+  }
+
+  nav .logo span { color: var(--accent); }
+
+  nav ul {
+    list-style: none; display: flex; gap: 0.5rem;
+  }
+
+  nav a {
+    color: rgba(255,255,255,0.8); text-decoration: none;
+    padding: 0.4rem 0.8rem; border-radius: 6px;
+    font-size: 0.9rem; transition: all 0.2s;
+  }
+
+  nav a:hover { color: #fff; background: rgba(26,188,156,0.2); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--primary) 0%, #0E6655 50%, var(--secondary) 100%);
+    position: relative; overflow: hidden;
+    padding: 6rem 2rem 4rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(26,188,156,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(26,188,156,0.1) 0%, transparent 40%);
+    animation: heroFloat 20s ease-in-out infinite;
+  }
+
+  @keyframes heroFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(2%, -1%) rotate(1deg); }
+    66% { transform: translate(-1%, 1%) rotate(-0.5deg); }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center; max-width: 800px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(26,188,156,0.2);
+    border: 1px solid rgba(26,188,156,0.4);
+    color: var(--accent);
+    padding: 0.3rem 1rem; border-radius: 20px;
+    font-size: 0.85rem; margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #fff; font-weight: 700;
+    line-height: 1.2; margin-bottom: 0.5rem;
+  }
+
+  .hero h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--accent); font-weight: 400;
+    font-style: italic; margin-bottom: 1.5rem;
+  }
+
+  .hero p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem;
+  }
+
+  .hero-stats {
+    display: flex; justify-content: center; gap: 2rem;
+    flex-wrap: wrap; margin-top: 2rem;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px; padding: 1.2rem 1.8rem;
+    text-align: center; min-width: 140px;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s;
+  }
+
+  .stat-card:hover { transform: translateY(-4px); }
+
+  .stat-card .num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2rem; font-weight: 700; color: var(--accent);
+    display: block;
+  }
+
+  .stat-card .label {
+    color: rgba(255,255,255,0.7); font-size: 0.85rem;
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center; margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2.2rem; color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header p {
+    color: var(--gray); font-size: 1rem;
+  }
+
+  .section-header .divider {
+    width: 60px; height: 3px;
+    background: var(--accent);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+  }
+
+  /* ===== OVERVIEW ===== */
+  .overview-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem; align-items: start;
+  }
+
+  .overview-text {
+    font-size: 1.05rem; color: var(--dark);
+  }
+
+  .overview-text p { margin-bottom: 1rem; }
+
+  .overview-highlight {
+    background: var(--light);
+    border-left: 4px solid var(--accent);
+    padding: 1.2rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+
+  .feature-list {
+    display: grid; gap: 1rem;
+  }
+
+  .feature-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex; gap: 1rem; align-items: flex-start;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+
+  .feature-icon {
+    width: 40px; height: 40px; min-width: 40px;
+    background: var(--light);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+
+  .feature-item h4 {
+    font-size: 0.95rem; color: var(--primary); margin-bottom: 0.2rem;
+  }
+
+  .feature-item p {
+    font-size: 0.85rem; color: var(--gray); line-height: 1.5;
+  }
+
+  /* ===== ETIOLOGY ===== */
+  .etiology-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .etiology-card {
+    background: #fff; border-radius: 12px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--accent);
+    transition: transform 0.3s;
+  }
+
+  .etiology-card:hover { transform: translateY(-4px); }
+
+  .etiology-card h3 {
+    font-size: 1.1rem; color: var(--primary);
+    margin-bottom: 0.8rem;
+  }
+
+  .etiology-card p {
+    font-size: 0.9rem; color: var(--gray); line-height: 1.7;
+  }
+
+  .genetics-panel {
+    margin-top: 2rem;
+    background: var(--primary);
+    border-radius: 12px;
+    padding: 2rem;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .gene-item h4 {
+    color: var(--accent); font-size: 1rem; margin-bottom: 0.4rem;
+  }
+
+  .gene-item p {
+    color: rgba(255,255,255,0.8); font-size: 0.9rem;
+  }
+
+  /* ===== CLINICAL ===== */
+  .clinical-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .fundus-table {
+    width: 100%; border-collapse: collapse;
+    background: #fff; border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .fundus-table th {
+    background: var(--secondary);
+    color: #fff; padding: 0.8rem 1rem;
+    text-align: left; font-size: 0.9rem;
+  }
+
+  .fundus-table td {
+    padding: 0.7rem 1rem; font-size: 0.9rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .fundus-table tr:hover td {
+    background: var(--light);
+  }
+
+  .symptom-list {
+    display: grid; gap: 1rem;
+  }
+
+  .symptom-item {
+    background: #fff; border-radius: 10px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex; align-items: center; gap: 1rem;
+  }
+
+  .symptom-dot {
+    width: 10px; height: 10px; min-width: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .symptom-item strong { color: var(--primary); }
+
+  /* ===== SYSTEMIC ===== */
+  .system-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .system-card {
+    background: #fff; border-radius: 12px;
+    padding: 1.8rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    position: relative; overflow: hidden;
+  }
+
+  .system-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+
+  .system-card.cns::before { background: var(--coral); }
+  .system-card.endo::before { background: var(--gold); }
+  .system-card.renal::before { background: var(--secondary); }
+  .system-card.cranio::before { background: var(--accent); }
+
+  .system-card h3 {
+    font-size: 1.1rem; margin-bottom: 0.8rem;
+  }
+
+  .system-card.cns h3 { color: var(--coral); }
+  .system-card.endo h3 { color: var(--gold); }
+  .system-card.renal h3 { color: var(--secondary); }
+  .system-card.cranio h3 { color: var(--accent); }
+
+  .system-card ul {
+    list-style: none; padding: 0;
+  }
+
+  .system-card li {
+    padding: 0.3rem 0;
+    font-size: 0.9rem; color: var(--dark);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .system-card li::before {
+    content: ''; position: absolute; left: 0; top: 0.7rem;
+    width: 6px; height: 6px; border-radius: 50%;
+  }
+
+  .system-card.cns li::before { background: var(--coral); }
+  .system-card.endo li::before { background: var(--gold); }
+  .system-card.renal li::before { background: var(--secondary); }
+  .system-card.cranio li::before { background: var(--accent); }
+
+  /* ===== DIAGNOSIS ===== */
+  .diagnosis-timeline {
+    display: grid; gap: 1.5rem;
+    position: relative;
+    padding-left: 3rem;
+  }
+
+  .diagnosis-timeline::before {
+    content: '';
+    position: absolute; left: 1rem; top: 0; bottom: 0;
+    width: 2px; background: var(--light);
+  }
+
+  .diag-step {
+    background: #fff; border-radius: 10px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    position: relative;
+  }
+
+  .diag-step::before {
+    content: attr(data-step);
+    position: absolute; left: -2.5rem; top: 1.5rem;
+    width: 32px; height: 32px;
+    background: var(--secondary);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; font-weight: 700;
+  }
+
+  .diag-step h3 {
+    color: var(--primary); font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .diag-step .subtitle {
+    color: var(--secondary); font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .diag-step p {
+    color: var(--gray); font-size: 0.9rem; line-height: 1.7;
+  }
+
+  /* ===== COMPLICATIONS ===== */
+  .complication-hero {
+    display: grid; grid-template-columns: 280px 1fr;
+    gap: 2rem; align-items: start;
+    margin-bottom: 2rem;
+  }
+
+  .big-stat {
+    background: var(--coral);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    color: #fff;
+  }
+
+  .big-stat .number {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 3.5rem; font-weight: 700;
+    display: block;
+  }
+
+  .big-stat .desc { font-size: 1rem; opacity: 0.9; }
+
+  .mechanism-list {
+    display: grid; gap: 1rem;
+  }
+
+  .mechanism-item {
+    background: #fff; border-radius: 10px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex; align-items: center; gap: 1rem;
+  }
+
+  .mech-num {
+    width: 32px; height: 32px; min-width: 32px;
+    background: var(--secondary);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; font-weight: 700;
+  }
+
+  .surgery-box {
+    background: #fff; border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--primary);
+  }
+
+  .surgery-box h3 {
+    color: var(--primary); margin-bottom: 1rem;
+  }
+
+  .surgery-steps {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .surgery-step {
+    background: var(--light);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+
+  .step-num {
+    background: var(--primary);
+    color: #fff; width: 24px; height: 24px; min-width: 24px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700;
+  }
+
+  /* ===== CASES ===== */
+  .case-cards {
+    display: grid; gap: 1.5rem;
+  }
+
+  .case-card {
+    background: #fff; border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-left: 5px solid;
+  }
+
+  .case-card:nth-child(1) { border-color: var(--secondary); }
+  .case-card:nth-child(2) { border-color: var(--coral); }
+  .case-card:nth-child(3) { border-color: var(--gold); }
+
+  .case-card h3 { margin-bottom: 0.8rem; font-size: 1.1rem; }
+  .case-card:nth-child(1) h3 { color: var(--secondary); }
+  .case-card:nth-child(2) h3 { color: var(--coral); }
+  .case-card:nth-child(3) h3 { color: var(--gold); }
+
+  .case-meta {
+    display: flex; gap: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem; color: var(--gray);
+  }
+
+  .case-card p {
+    font-size: 0.9rem; color: var(--dark); line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-outcome {
+    background: var(--light);
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  /* ===== PREVENTION ===== */
+  .prevention-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .prevention-card {
+    background: #fff; border-radius: 12px;
+    padding: 1.8rem 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  .prevention-card:hover { transform: translateY(-4px); }
+
+  .prevention-num {
+    width: 48px; height: 48px;
+    background: var(--light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.3rem; font-weight: 700; color: var(--secondary);
+  }
+
+  .prevention-card h4 {
+    color: var(--primary); font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prevention-card p {
+    font-size: 0.85rem; color: var(--gray); line-height: 1.6;
+  }
+
+  /* ===== RESEARCH ===== */
+  .research-intro {
+    background: #fff; border-radius: 12px;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-left: 4px solid var(--secondary);
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem; color: var(--dark); line-height: 1.8;
+  }
+
+  .paper-cards {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .paper-card {
+    background: #fff; border-radius: 12px;
+    padding: 1.6rem 1.8rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-top: 3px solid var(--accent);
+    display: flex; flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .paper-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+
+  .paper-year {
+    display: inline-block;
+    background: var(--light);
+    color: var(--primary);
+    font-size: 0.75rem; font-weight: 700;
+    padding: 0.2rem 0.7rem;
+    border-radius: 12px;
+    margin-bottom: 0.6rem;
+    letter-spacing: 1px;
+    align-self: flex-start;
+  }
+
+  .paper-card h4 {
+    color: var(--primary); font-size: 1rem;
+    margin-bottom: 0.4rem; line-height: 1.45;
+  }
+
+  .paper-card .authors {
+    color: var(--secondary); font-size: 0.8rem;
+    font-style: italic; margin-bottom: 0.8rem;
+  }
+
+  .paper-card .finding {
+    color: var(--dark); font-size: 0.88rem;
+    line-height: 1.7;
+    flex-grow: 1;
+  }
+
+  .paper-card .tag-row {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px dashed #e5e5e5;
+  }
+
+  .paper-tag {
+    background: var(--light);
+    color: var(--primary);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+  }
+
+  .stats-row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .stat-box {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff; border-radius: 12px;
+    padding: 1.4rem 1rem;
+    text-align: center;
+  }
+
+  .stat-box .big {
+    display: block; font-family: 'Noto Serif SC', serif;
+    font-size: 1.9rem; font-weight: 700; color: var(--accent);
+    line-height: 1.1;
+  }
+
+  .stat-box .small {
+    display: block; font-size: 0.78rem;
+    color: rgba(255,255,255,0.85);
+    margin-top: 0.4rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== TREATMENT ===== */
+  .treatment-tabs {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .treatment-tab {
+    background: #fff; border-radius: 10px;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-top: 3px solid var(--accent);
+  }
+
+  .treatment-tab .tab-icon {
+    font-size: 1.8rem;
+    display: block; margin-bottom: 0.4rem;
+  }
+
+  .treatment-tab h4 {
+    font-size: 0.95rem;
+    color: var(--primary);
+    margin-bottom: 0.2rem;
+  }
+
+  .treatment-tab p {
+    font-size: 0.78rem;
+    color: var(--gray);
+  }
+
+  .treatment-blocks {
+    display: grid; gap: 1.8rem;
+  }
+
+  .treatment-block {
+    background: #fff; border-radius: 14px;
+    padding: 2rem 2.2rem;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    border-left: 5px solid var(--secondary);
+  }
+
+  .treatment-block.medical { border-color: var(--accent); }
+  .treatment-block.surgical { border-color: var(--coral); }
+  .treatment-block.rehab { border-color: var(--gold); }
+  .treatment-block.followup { border-color: var(--primary); }
+
+  .treatment-block h3 {
+    font-size: 1.25rem; color: var(--primary);
+    margin-bottom: 0.3rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+
+  .treatment-block .en {
+    color: var(--gray); font-size: 0.85rem;
+    font-style: italic; margin-bottom: 1.2rem;
+  }
+
+  .treatment-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .treatment-item {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    border-left: 3px solid var(--accent);
+  }
+
+  .treatment-item h5 {
+    color: var(--primary);
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .treatment-item .evidence-tag {
+    display: inline-block;
+    background: var(--secondary);
+    color: #fff;
+    font-size: 0.68rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    margin-left: 0.3rem;
+    vertical-align: middle;
+    letter-spacing: 0.3px;
+  }
+
+  .treatment-item .evidence-tag.new {
+    background: var(--coral);
+  }
+
+  .treatment-item p {
+    color: var(--gray);
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+
+  .novel-highlight {
+    background: linear-gradient(135deg, #FEF5E7, #FDEBD0);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin-top: 1.2rem;
+  }
+
+  .novel-highlight strong { color: #B9770E; }
+
+  .novel-highlight p {
+    color: var(--dark);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  /* ===== SUPPORT ===== */
+  .support-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    align-items: center;
+  }
+
+  .support-text {
+    font-size: 1rem;
+    color: var(--dark);
+    line-height: 1.85;
+  }
+
+  .support-text p { margin-bottom: 1rem; }
+
+  .support-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .support-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    transition: transform 0.3s;
+  }
+
+  .support-card:hover { transform: translateY(-3px); }
+
+  .support-card .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .support-card h4 {
+    color: var(--primary);
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .support-card p {
+    color: var(--gray);
+    font-size: 0.85rem;
+    line-height: 1.65;
+  }
+
+  .mdt-panel {
+    background: var(--primary);
+    color: #fff;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    margin-top: 2rem;
+  }
+
+  .mdt-panel h3 {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+    text-align: center;
+  }
+
+  .mdt-panel > p {
+    text-align: center;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .mdt-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+  }
+
+  .mdt-role {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 1rem 0.6rem;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .mdt-role:hover {
+    background: rgba(26,188,156,0.15);
+    transform: translateY(-2px);
+  }
+
+  .mdt-role .mdt-icon {
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .mdt-role .mdt-name {
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .mdt-role .mdt-role-desc {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.7rem;
+    line-height: 1.3;
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery-section {
+    background: var(--primary);
+    padding: 4rem 2rem;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .gallery-section .section-header h2 { color: #fff; }
+  .gallery-section .section-header p { color: rgba(255,255,255,0.7); }
+  .gallery-section .section-header .divider { background: var(--accent); }
+
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .gallery-item {
+    border-radius: 12px; overflow: hidden;
+    position: relative;
+    aspect-ratio: 16/9;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 2rem 1rem 1rem;
+    color: #fff; font-size: 0.85rem;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--dark);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  footer .refs {
+    max-width: 800px; margin: 0 auto 2rem;
+    text-align: left;
+  }
+
+  footer h3 {
+    color: var(--accent); font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  footer .refs p {
+    color: rgba(255,255,255,0.6); font-size: 0.8rem;
+    line-height: 1.8;
+  }
+
+  footer .copyright {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    .overview-grid,
+    .clinical-grid,
+    .complication-hero,
+    .support-hero { grid-template-columns: 1fr; }
+    .etiology-cards,
+    .system-grid,
+    .surgery-steps,
+    .prevention-grid,
+    .gallery-grid,
+    .paper-cards,
+    .treatment-tabs,
+    .treatment-list,
+    .support-card-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .mdt-grid { grid-template-columns: repeat(2, 1fr); }
+    .genetics-panel { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; align-items: center; }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .etiology-cards { grid-template-columns: repeat(2, 1fr); }
+    .surgery-steps { grid-template-columns: repeat(2, 1fr); }
+    .prevention-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .treatment-tabs { grid-template-columns: repeat(2, 1fr); }
+    .mdt-grid { grid-template-columns: repeat(3, 1fr); }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">MGS <span>牵牛花综合征</span></div>
+    <ul>
+      <li><a href="#overview">概述</a></li>
+      <li><a href="#etiology">病因</a></li>
+      <li><a href="#clinical">临床表现</a></li>
+      <li><a href="#systemic">系统关联</a></li>
+      <li><a href="#diagnosis">诊断</a></li>
+      <li><a href="#complications">并发症</a></li>
+      <li><a href="#research">近期研究</a></li>
+      <li><a href="#treatment">治疗方案</a></li>
+      <li><a href="#support">患者支持</a></li>
+      <li><a href="#cases">病例</a></li>
+      <li><a href="#prevention">预防</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">RARE CONGENITAL OPTIC DISC ANOMALY</div>
+    <h1>牵牛花综合征</h1>
+    <h2>Morning Glory Syndrome</h2>
+    <p>一种罕见的先天性视盘凹陷性异常，因眼底形态酷似牵牛花而得名。Kindler 于 1970 年首次描述。</p>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <span class="num">2.6/10万</span>
+        <span class="label">患病率</span>
+      </div>
+      <div class="stat-card">
+        <span class="num">85%</span>
+        <span class="label">单侧发病</span>
+      </div>
+      <div class="stat-card">
+        <span class="num">30-38%</span>
+        <span class="label">视网膜脱离风险</span>
+      </div>
+      <div class="stat-card">
+        <span class="num">~2岁</span>
+        <span class="label">典型诊断年龄</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="section-header">
+    <h2>疾病概述</h2>
+    <p>了解牵牛花综合征的基本概念与特征</p>
+    <div class="divider"></div>
+  </div>
+  <div class="overview-grid">
+    <div class="overview-text">
+      <p>牵牛花综合征（Morning Glory Syndrome, MGS）是一种先天性视盘凹陷性异常，以漏斗状视盘凹陷、中央胶质组织增生及视盘周围色素改变为特征性表现。</p>
+      <p>该综合征的临床意义不仅在于其对视功能的影响，更在于其与多种全身性疾病的密切关联，包括经蝶基底脑膨出、烟雾病、肾脏发育不良及内分泌异常等。</p>
+      <div class="overview-highlight">
+        <strong>命名由来：</strong>1970年，Kindler根据眼底检查中视盘的特征性外观——类似牵牛花（Ipomoea）的花朵形态——首次命名该综合征。视盘中央的白色胶质组织如同花蕊，放射状走行的视网膜血管如同花瓣，视盘周围的色素环则如同花萼。
+      </div>
+      <p>MGS在儿童人群中发病率约为2.6/10万，女性多于男性（男女比例约1:2），在非裔人群中较为罕见。约85%为单侧发病，通常在2岁前确诊。</p>
+    </div>
+    <div class="feature-list">
+      <div class="feature-item">
+        <div class="feature-icon">👁</div>
+        <div>
+          <h4>视盘扩大与漏斗状凹陷</h4>
+          <p>后极部球壁呈锥形凹陷，视盘位于凹陷中央</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔬</div>
+        <div>
+          <h4>中央胶质组织增生</h4>
+          <p>视盘中心覆盖白色蓬松状胶质组织团块</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🩸</div>
+        <div>
+          <h4>放射状视网膜血管</h4>
+          <p>血管从视盘边缘呈放射状走行，异常笔直</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🎯</div>
+        <div>
+          <h4>视盘周围色素环</h4>
+          <p>环状脉络膜视网膜色素改变环绕视盘</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">💫</div>
+        <div>
+          <h4>视盘收缩运动</h4>
+          <p>每分钟2-3次节律性收缩，与平滑肌细胞有关</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ETIOLOGY -->
+<section id="etiology" style="background: var(--light-gray); max-width: 100%; padding: 5rem 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-header">
+      <h2>病因学与发病机制</h2>
+      <p>探索疾病的胚胎学基础与遗传因素</p>
+      <div class="divider"></div>
+    </div>
+    <div class="etiology-cards">
+      <div class="etiology-card">
+        <h3>胚裂闭合不全假说</h3>
+        <p>认为MGS源于胚胎发育期视杯裂闭合异常，导致视盘结构发育不完整。然而MGS表现为中央凹陷而非下方缺损，使该假说受到质疑。</p>
+      </div>
+      <div class="etiology-card">
+        <h3>中胚层分化异常假说</h3>
+        <p>Pollock于1968年提出，MGS可能源于原始中胚层的异常分化，导致后巩膜壁闭合不全和筛板发育不完整。</p>
+      </div>
+      <div class="etiology-card">
+        <h3>神经外胚层发育不良假说</h3>
+        <p>认为MGS是视盘区域神经外胚层发育异常的结果，导致视盘处胶质组织异常增生和视网膜血管走行异常。</p>
+      </div>
+    </div>
+    <div class="genetics-panel">
+      <div class="gene-item">
+        <h4>PAX6 基因</h4>
+        <p>部分MGS病例相关，但并非一致性发现，提示可能存在遗传异质性</p>
+      </div>
+      <div class="gene-item">
+        <h4>PAX2 基因</h4>
+        <p>与肾-视盘综合征密切相关，部分表型与MGS重叠</p>
+      </div>
+      <div class="gene-item">
+        <h4>MMP19 基因</h4>
+        <p>在空洞性视盘异常（CODA）家系中被发现，家族性CODA约65%双侧受累</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLINICAL -->
+<section id="clinical">
+  <div class="section-header">
+    <h2>眼部临床表现</h2>
+    <p>识别牵牛花综合征的关键症状与体征</p>
+    <div class="divider"></div>
+  </div>
+  <div class="clinical-grid">
+    <div>
+      <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.2rem;">主要症状</h3>
+      <div class="symptom-list">
+        <div class="symptom-item">
+          <div class="symptom-dot"></div>
+          <div><strong>视力下降</strong> — 最常见首发症状，视力通常在数指至20/200之间</div>
+        </div>
+        <div class="symptom-item">
+          <div class="symptom-dot"></div>
+          <div><strong>斜视</strong> — 约80%的患者出现（内斜视或外斜视），常为首次就诊原因</div>
+        </div>
+        <div class="symptom-item">
+          <div class="symptom-dot"></div>
+          <div><strong>白瞳症</strong> — 部分患者因瞳孔区异常反光就诊</div>
+        </div>
+        <div class="symptom-item">
+          <div class="symptom-dot"></div>
+          <div><strong>眼球震颤</strong> — 严重病例可出现</div>
+        </div>
+        <div class="symptom-item">
+          <div class="symptom-dot"></div>
+          <div><strong>视野缺损</strong> — 常见盲点扩大</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.2rem;">特征性眼底表现</h3>
+      <table class="fundus-table">
+        <thead>
+          <tr><th>特征</th><th>描述</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>视盘扩大</td><td>直径明显增大，位于漏斗状凹陷中央</td></tr>
+          <tr><td>漏斗状凹陷</td><td>后极部球壁呈锥形深度凹陷</td></tr>
+          <tr><td>中央胶质组织</td><td>白色蓬松状胶质组织团块覆盖视盘中心</td></tr>
+          <tr><td>色素环</td><td>视盘周围环状脉络膜视网膜色素改变</td></tr>
+          <tr><td>放射状血管</td><td>视网膜血管从视盘边缘呈放射状走行</td></tr>
+          <tr><td>动静脉鉴别困难</td><td>视盘区域动静脉难以区分</td></tr>
+          <tr><td>黄斑牵引</td><td>黄斑可被纳入凹陷范围内</td></tr>
+          <tr><td>残留玻璃体动脉</td><td>约26%病例可见胎儿血管系统残留</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMIC -->
+<section id="systemic" style="background: var(--light-gray); max-width: 100%; padding: 5rem 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-header">
+      <h2>全身系统关联</h2>
+      <p>MGS常合并多种全身性异常，需要多学科评估</p>
+      <div class="divider"></div>
+    </div>
+    <div class="system-grid">
+      <div class="system-card cns">
+        <h3>中枢神经系统</h3>
+        <ul>
+          <li>经蝶基底脑膨出 — 最常见颅内关联异常</li>
+          <li>胼胝体发育不全 — 常伴侧脑室扩张</li>
+          <li>Chiari I型畸形</li>
+          <li>烟雾病 — 可致缺血性卒中或脑出血</li>
+        </ul>
+      </div>
+      <div class="system-card endo">
+        <h3>内分泌系统</h3>
+        <ul>
+          <li>垂体发育异常或垂体柄重复</li>
+          <li>尿崩症</li>
+          <li>催乳素、TSH水平异常</li>
+          <li>生长激素缺乏</li>
+        </ul>
+      </div>
+      <div class="system-card renal">
+        <h3>肾脏系统</h3>
+        <ul>
+          <li>肾-视盘综合征（PAX2基因相关）</li>
+          <li>肾发育不良</li>
+          <li>继发性高血压</li>
+          <li>慢性肾病风险</li>
+        </ul>
+      </div>
+      <div class="system-card cranio">
+        <h3>颅面部异常</h3>
+        <ul>
+          <li>毛细血管瘤</li>
+          <li>眼距增宽</li>
+          <li>唇裂/腭裂</li>
+          <li>中线面部畸形</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSIS -->
+<section id="diagnosis">
+  <div class="section-header">
+    <h2>诊断方法</h2>
+    <p>从眼底镜到MRI的多模态诊断流程</p>
+    <div class="divider"></div>
+  </div>
+  <div class="diagnosis-timeline">
+    <div class="diag-step" data-step="1">
+      <h3>眼底镜检查</h3>
+      <div class="subtitle">基础诊断方法</div>
+      <p>直接观察特征性视盘改变：漏斗状凹陷、中央胶质组织、色素环、放射状血管走行。是MGS诊断的金标准。</p>
+    </div>
+    <div class="diag-step" data-step="2">
+      <h3>OCT（光学相干断层扫描）</h3>
+      <div class="subtitle">核心影像学工具</div>
+      <p>清晰显示视盘漏斗状凹陷形态，识别视网膜前膜，记录视盘收缩运动，检测微小视网膜裂孔和浅层脱离，评估玻璃体-蛛网膜下腔通道。</p>
+    </div>
+    <div class="diag-step" data-step="3">
+      <h3>荧光素血管造影（FFA）</h3>
+      <div class="subtitle">评估视网膜血管状态</div>
+      <p>检测周边视网膜毛细血管无灌注区，发现灌注边界渗漏，揭示纤维血管增生，显示视盘附近动静脉交通。</p>
+    </div>
+    <div class="diag-step" data-step="4">
+      <h3>MRI / MRA</h3>
+      <div class="subtitle">全身关联评估关键</div>
+      <p>三个特征性MRI表现：漏斗状后极部视盘、视神经远端异常组织伴蛛网膜下腔消失、葡萄膜-巩膜壁不连续性。对排查烟雾病和脑膨出至关重要。</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLICATIONS -->
+<section id="complications" style="background: var(--light-gray); max-width: 100%; padding: 5rem 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-header">
+      <h2>主要并发症 — 视网膜脱离</h2>
+      <p>MGS最重要的眼部并发症及其处理</p>
+      <div class="divider"></div>
+    </div>
+    <div class="complication-hero">
+      <div class="big-stat">
+        <span class="number">30-38%</span>
+        <span class="desc">患者发生视网膜脱离</span>
+      </div>
+      <div class="mechanism-list">
+        <div class="mechanism-item">
+          <div class="mech-num">1</div>
+          <div><strong>脑脊液渗漏：</strong>蛛网膜下腔与视网膜下腔存在异常通道，CSF渗入视网膜下</div>
+        </div>
+        <div class="mechanism-item">
+          <div class="mech-num">2</div>
+          <div><strong>孔源性机制：</strong>视盘边缘裂隙样裂孔使玻璃体腔与视网膜下腔直接相通</div>
+        </div>
+        <div class="mechanism-item">
+          <div class="mech-num">3</div>
+          <div><strong>牵引性机制：</strong>胶质组织收缩牵拉造成裂孔 / 周边无灌注纤维血管增生</div>
+        </div>
+        <div class="mechanism-item">
+          <div class="mech-num">4</div>
+          <div><strong>渗出性机制：</strong>少见，与新生血管形成和渗出相关</div>
+        </div>
+      </div>
+    </div>
+    <div class="surgery-box">
+      <h3>手术治疗方案（玻璃体切割术）</h3>
+      <div class="surgery-steps">
+        <div class="surgery-step"><div class="step-num">1</div>经睫状体平坦部玻璃体切割</div>
+        <div class="surgery-step"><div class="step-num">2</div>曲安奈德辅助后玻璃体脱离</div>
+        <div class="surgery-step"><div class="step-num">3</div>视网膜前膜/内界膜剥除</div>
+        <div class="surgery-step"><div class="step-num">4</div>液气交换 + 视网膜下液引流</div>
+        <div class="surgery-step"><div class="step-num">5</div>裂孔周围激光光凝</div>
+        <div class="surgery-step"><div class="step-num">6</div>硅油或长效气体填充</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-header">
+    <h2>近期临床研究进展</h2>
+    <p>Recent Clinical Research &amp; Literature · 2020-2025 年关键文献</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="research-intro">
+    近年来国际眼科学界对牵牛花综合征的研究聚焦于四个方向：<strong>视盘收缩运动的病理生理机制</strong>、<strong>合并症谱系的扩展</strong>、<strong>脑血管异常（特别是烟雾病）的筛查与监测</strong>，以及<strong>新型治疗方法的探索</strong>。随着 OCT 与 MRA 技术的进步，MGS 的多系统评估已成为标准路径。
+  </div>
+
+  <div class="paper-cards">
+    <div class="paper-card">
+      <span class="paper-year">2024</span>
+      <h4>口服乙酰唑胺治疗 MGS 浆液性视网膜脱离</h4>
+      <div class="authors">Am J Ophthalmol Case Rep · PubMed 38917399</div>
+      <p class="finding">一例 10 岁男童 MGS 伴大泡性浆液性视网膜脱离，经口服乙酰唑胺治疗数日内脱离复位、视力完全恢复。作者提出乙酰唑胺可作为<strong>非孔源性 MGS 视网膜脱离的药物替代方案</strong>，避免手术风险。</p>
+      <div class="tag-row">
+        <span class="paper-tag">药物治疗</span>
+        <span class="paper-tag">浆液性脱离</span>
+        <span class="paper-tag">儿童</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="paper-year">2024</span>
+      <h4>PPV 联合 C3F8 气体填充治疗 MGS 孔源性视网膜脱离</h4>
+      <div class="authors">Front Med · PMC11887515</div>
+      <p class="finding">报道一例 MGS 合并孔源性视网膜脱离，采用 25G 玻璃体切割联合 <strong>C3F8 气体填充</strong>（而非传统硅油）取得良好解剖复位结果，避免了二次硅油取出手术与相关并发症，为儿童患者提供更友好的方案。</p>
+      <div class="tag-row">
+        <span class="paper-tag">手术创新</span>
+        <span class="paper-tag">气体填充</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="paper-year">2024</span>
+      <h4>人羊膜覆盖视盘治疗 MGS 视网膜脱离</h4>
+      <div class="authors">Case Reports in Ophthalmology · Karger</div>
+      <p class="finding">创新术式：25G PPV 联合<strong>人羊膜膜片（hAM patch）覆盖视盘</strong>，气体先期填充后行硅油内填，用于封闭视盘-蛛网膜下腔异常通道，成功达成视网膜复位。</p>
+      <div class="tag-row">
+        <span class="paper-tag">再生医学</span>
+        <span class="paper-tag">羊膜</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="paper-year">2023</span>
+      <h4>MGDA 与烟雾病关联的回顾性病例系列</h4>
+      <div class="authors">Morganti et al. · J Neurosurg Pediatr 31(6):617</div>
+      <p class="finding">20 例 MGDA 患者中 <strong>9 例（45%）合并脑血管异常</strong>，涵盖 Willis 环节段性狭窄、颈内动脉发育不全直至完全缺如。作者强烈建议所有 MGDA 儿童进行脑 MRI/MRA 基线筛查，并每 6 个月随访一次。</p>
+      <div class="tag-row">
+        <span class="paper-tag">烟雾病</span>
+        <span class="paper-tag">神经影像</span>
+        <span class="paper-tag">筛查策略</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="paper-year">2021</span>
+      <h4>MGDA-烟雾病-经蝶脑膨出三联征</h4>
+      <div class="authors">Neurological Sciences · Springer</div>
+      <p class="finding">报道罕见三联征病例：牵牛花视盘异常 + 烟雾血管病 + 经蝶脑膨出。阐述这一独特表型的<strong>共同神经脊发育异常假说</strong>，提示胚胎学上可能存在统一机制，为病因研究提供新视角。</p>
+      <div class="tag-row">
+        <span class="paper-tag">胚胎发育</span>
+        <span class="paper-tag">脑膨出</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="paper-year">2021</span>
+      <h4>MGS 相关视网膜脱离的外科挑战</h4>
+      <div class="authors">Surgical Challenges · PMC8544114</div>
+      <p class="finding">分析 MGS-RD 手术难点并提出应对策略：<strong>附加环扎带支撑玻璃体基底</strong>、必要时联合晶状体切除以充分剥离。术前视盘胶质组织覆盖是不良预后的独立因素，而 PVR 的存在并不影响解剖复位率。</p>
+      <div class="tag-row">
+        <span class="paper-tag">玻璃体视网膜</span>
+        <span class="paper-tag">手术策略</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="paper-year">2021</span>
+      <h4>MGS 玻璃体视网膜手术预后分析</h4>
+      <div class="authors">Outcomes of VR Surgery · PMC8482902</div>
+      <p class="finding">回顾性分析多例 MGS-RD 患者手术结果：<strong>所有眼均实现解剖复位</strong>，最终最佳矫正视力介于 6/600 至 6/30；无视网膜脱离再发。证实早期积极手术干预可显著改善解剖预后。</p>
+      <div class="tag-row">
+        <span class="paper-tag">长期随访</span>
+        <span class="paper-tag">解剖预后</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="paper-year">2020</span>
+      <h4>MGS 视盘收缩运动的 OCT 记录</h4>
+      <div class="authors">Am J Ophthalmol Case Rep · PMC7581832</div>
+      <p class="finding">视盘呈<strong>每 5-7 秒不规则节律性收缩-扩张</strong>，收缩相视盘直径缩小、视网膜静脉充血。机制为蛛网膜下腔与视网膜下腔异常通道允许液体流动，对应脉压波动。此发现重新确认了 Pollock 早期平滑肌假说的解剖基础。</p>
+      <div class="tag-row">
+        <span class="paper-tag">病理生理</span>
+        <span class="paper-tag">OCT</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="paper-year">2020</span>
+      <h4>MGDA 合并眼科表现与烟雾病的 Mini-Review</h4>
+      <div class="authors">Frontiers in Neurology</div>
+      <p class="finding">系统回顾所有已报道的 MGDA + 烟雾病病例，总结：MGDA 是成人和儿童烟雾血管病的重要眼科警示征。建议一旦发现牵牛花样视盘，应立即启动<strong>脑血管影像评估流程</strong>，即使患者无神经系统症状。</p>
+      <div class="tag-row">
+        <span class="paper-tag">综述</span>
+        <span class="paper-tag">烟雾病</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="paper-year">2021</span>
+      <h4>MMP19 基因与空洞性视盘异常的家族性关联</h4>
+      <div class="authors">Hazlewood et al. · Ophthalmology 128(11):1630</div>
+      <p class="finding">在空洞性视盘异常（CODA）大家系中发现 <strong>MMP19 基因突变</strong>，部分患者表型与 MGS 重叠，家族性 CODA 约 65% 为双侧受累。拓展 MGS 遗传学谱，提示细胞外基质重塑在视盘异常发育中的作用。</p>
+      <div class="tag-row">
+        <span class="paper-tag">遗传学</span>
+        <span class="paper-tag">MMP19</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="paper-year">2013</span>
+      <h4>MGS 合并持续性胎儿血管系统的 22 眼研究</h4>
+      <div class="authors">Clinical characteristics of 22 eyes · PMC3786642</div>
+      <p class="finding">大样本分析显示 <strong>86.4% 的 MGS 眼存在并发症</strong>：白内障（10 眼）、继发性青光眼（8 眼）、角膜白斑/水肿（8 眼）、视网膜脱离（8 眼）、斜视（3 眼）、眼球震颤（2 眼）。强调 MGS 不只是孤立视盘病，而是多并发症眼部疾病谱。</p>
+      <div class="tag-row">
+        <span class="paper-tag">PHPV</span>
+        <span class="paper-tag">并发症谱</span>
+      </div>
+    </div>
+
+    <div class="paper-card">
+      <span class="paper-year">2006</span>
+      <h4>MGS 患者颅内血管异常发生率</h4>
+      <div class="authors">Lenhart et al. · Am J Ophthalmol 142(4):644</div>
+      <p class="finding">里程碑研究：系统评估 MGS 儿童的脑血管状态，确认<strong>颅内血管异常发生率显著高于普通人群</strong>。奠定了"MGS 确诊后常规神经影像学筛查"的临床路径基础。</p>
+      <div class="tag-row">
+        <span class="paper-tag">流行病学</span>
+        <span class="paper-tag">脑血管</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <span class="big">45%</span>
+      <span class="small">MGS 合并脑血管异常</span>
+    </div>
+    <div class="stat-box">
+      <span class="big">14% / 33%</span>
+      <span class="small">5 年 / 10 年 RD 累积发生率</span>
+    </div>
+    <div class="stat-box">
+      <span class="big">86%</span>
+      <span class="small">合并其他眼部并发症</span>
+    </div>
+    <div class="stat-box">
+      <span class="big">6-10%</span>
+      <span class="small">烟雾病致儿童脑卒中占比</span>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENT -->
+<section id="treatment" style="background: var(--light-gray); max-width: 100%; padding: 5rem 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-header">
+      <h2>综合治疗与缓解方法</h2>
+      <p>Comprehensive Treatment &amp; Patient Relief Strategies</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="treatment-tabs">
+      <div class="treatment-tab">
+        <span class="tab-icon">💊</span>
+        <h4>药物治疗</h4>
+        <p>乙酰唑胺 · 抗VEGF</p>
+      </div>
+      <div class="treatment-tab">
+        <span class="tab-icon">🏥</span>
+        <h4>手术治疗</h4>
+        <p>PPV · 气体/硅油 · 羊膜</p>
+      </div>
+      <div class="treatment-tab">
+        <span class="tab-icon">👁</span>
+        <h4>视觉康复</h4>
+        <p>弱视训练 · 屈光矫正</p>
+      </div>
+      <div class="treatment-tab">
+        <span class="tab-icon">🔄</span>
+        <h4>长期随访</h4>
+        <p>多学科监测</p>
+      </div>
+    </div>
+
+    <div class="treatment-blocks">
+      <!-- 药物治疗 -->
+      <div class="treatment-block medical">
+        <h3>💊 药物治疗方案</h3>
+        <div class="en">Pharmacological Treatment Options</div>
+        <div class="treatment-list">
+          <div class="treatment-item">
+            <h5>口服乙酰唑胺<span class="evidence-tag new">2024 新进展</span></h5>
+            <p>适用于<strong>非孔源性浆液性视网膜脱离</strong>。通过减少视网膜色素上皮下液体渗出，可在数日内实现脱离复位，视力快速恢复。对儿童患者尤为友好，避免了手术创伤。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>玻璃体腔注射贝伐单抗（抗 VEGF）<span class="evidence-tag">IIa 级证据</span></h5>
+            <p>用于 MGS 合并<strong>脉络膜新生血管（CNV）</strong>的患者。单次 1.25 mg 注射即可实现视网膜下液吸收、CNV 退缩，报告显示视力可改善至 1.5，且 26 个月无复发。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>糖皮质激素局部/全身应用</h5>
+            <p>用于控制<strong>炎症性并发症和黄斑水肿</strong>。可选择 Tenon's 囊下注射、玻璃体腔地塞米松缓释剂，或口服强的松辅助治疗。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>预防性抗青光眼治疗</h5>
+            <p>因 MGS 继发性青光眼发生率较高（~36%），出现眼压升高时应<strong>及早启动前列腺素类或 β 受体阻滞剂滴眼液</strong>，必要时联合手术降压。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 手术治疗 -->
+      <div class="treatment-block surgical">
+        <h3>🏥 手术治疗方案</h3>
+        <div class="en">Surgical Management Options</div>
+        <div class="treatment-list">
+          <div class="treatment-item">
+            <h5>标准玻璃体切割术（PPV）</h5>
+            <p>一线手术：核心玻璃体切除 + 曲安奈德辅助后玻璃体脱离 + 基底部彻底刮除 + ILM/ERM 剥除 + 液气交换 + 裂孔激光光凝。<strong>多数研究报告解剖复位率 &gt; 85%</strong>。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>PPV + C3F8 气体填充<span class="evidence-tag new">替代硅油</span></h5>
+            <p>2024 年研究证实 C3F8 长效气体填充可达到与硅油相近的解剖复位效果，同时<strong>避免二次硅油取出手术</strong>和相关并发症（硅油乳化、角膜病变、继发性青光眼）。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>人羊膜膜片视盘覆盖术<span class="evidence-tag new">2024 创新</span></h5>
+            <p>创新术式：将<strong>人羊膜膜片置于视盘凹陷表面</strong>，联合气体/硅油填充。旨在物理封闭蛛网膜下腔-视网膜下腔异常通道，减少脑脊液渗漏相关的复发性脱离。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>PPV + 环扎带 + 晶状体切除</h5>
+            <p>对于<strong>严重玻璃体基底牵引或合并周边 PVR</strong> 的复杂病例，附加巩膜环扎带提供 360° 支撑，必要时同期行晶状体切除以充分暴露周边部。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>斜视矫正手术</h5>
+            <p>约 80% 的 MGS 患者存在斜视。在弱视治疗稳定后行<strong>外直肌/内直肌后徙或缩短术</strong>，可改善外观、减轻心理压力，部分病例可改善双眼视功能。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>视神经鞘开窗术（选择性）</h5>
+            <p>用于反复脑脊液渗漏导致的<strong>顽固性视网膜脱离</strong>。通过开放视神经鞘降低蛛网膜下腔压力差，间接阻断 CSF 向视网膜下腔的渗漏。</p>
+          </div>
+        </div>
+        <div class="novel-highlight">
+          <strong>⚡ 2024 年术式选择趋势：</strong>
+          <p>国际眼科学界对 MGS 手术的最新共识倾向于<strong>分层递进策略</strong>——对轻型浆液性脱离首选药物（乙酰唑胺），对孔源性脱离首选 PPV + 气体填充，对复杂 PVR/复发性病例保留硅油或羊膜覆盖作为备选方案。儿童患者尤其强调"最小创伤、最大保全"原则。</p>
+        </div>
+      </div>
+
+      <!-- 视觉康复 -->
+      <div class="treatment-block rehab">
+        <h3>👁 视觉康复与弱视管理</h3>
+        <div class="en">Visual Rehabilitation &amp; Amblyopia Management</div>
+        <div class="treatment-list">
+          <div class="treatment-item">
+            <h5>早期散瞳验光与光学矫正</h5>
+            <p>MGS 患者常伴<strong>高度屈光不正和屈光参差</strong>。确诊后应立即进行睫状肌麻痹验光并配戴全矫眼镜，这是防止剥夺性弱视的第一步。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>遮盖疗法<span class="evidence-tag">循证证据</span></h5>
+            <p>对<strong>感觉成熟期（&lt; 8 岁）</strong>的单侧 MGS 患者进行健眼遮盖。已有文献报告：3.8 岁患儿经 5 年遮盖治疗后，视力从数指 0.3 m 改善至 20/100。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>压贴膜与模糊疗法</h5>
+            <p>对无法接受传统眼罩的幼儿或社交敏感儿童，可使用<strong>Bangerter 压贴膜或阿托品模糊疗法</strong>，效果相近但依从性更高。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>低视力辅具适配</h5>
+            <p>视力低于 20/200 的患者可受益于：<strong>手持/立式放大镜、电子助视器、便携视频放大系统、屏幕阅读软件</strong>。儿童学龄期尤其需要此类辅助以支持学习。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>定向行动训练</h5>
+            <p>对严重视力受损患者提供<strong>定向行动（O&amp;M）训练</strong>——白杖使用、环境定位、交通安全等生活自理技能，由康复师或特教机构提供。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>视功能训练（部分患者）</h5>
+            <p>针对具备一定视力基础且合并集合功能障碍者，可尝试<strong>双眼视训练、融像训练</strong>。但对视盘中心病变的 MGS 效果有限，个体差异大。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 长期随访 -->
+      <div class="treatment-block followup">
+        <h3>🔄 长期随访与监测</h3>
+        <div class="en">Long-term Follow-up &amp; Monitoring</div>
+        <div class="treatment-list">
+          <div class="treatment-item">
+            <h5>眼科定期复查</h5>
+            <p><strong>每 3-6 个月散瞳眼底检查</strong>（年幼儿童）及 OCT，监测视网膜脱离早期征象、胶质组织变化、对侧眼发育。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>脑 MRI / MRA 随访<span class="evidence-tag">2023 推荐</span></h5>
+            <p>所有 MGDA 患者均应<strong>每 6 个月行脑血管影像检查</strong>，监测烟雾病进展。即使基线正常，随访期间仍可能出现新发血管异常。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>内分泌功能监测</h5>
+            <p>定期评估<strong>生长激素、TSH、催乳素、ACTH</strong> 等垂体功能，尤其对合并基底脑膨出者。必要时行激素替代治疗并监测儿童生长发育曲线。</p>
+          </div>
+          <div class="treatment-item">
+            <h5>肾功能监测</h5>
+            <p>对 PAX2 基因突变或影像学发现肾发育不良者，每年进行<strong>肾功能、尿常规、肾脏超声</strong>，预防慢性肾病进展与继发性高血压。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section id="support">
+  <div class="section-header">
+    <h2>患者支持与生活质量</h2>
+    <p>Patient Support &amp; Quality of Life · 从医疗到生活的全方位关怀</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="support-hero">
+    <div class="support-text">
+      <p>尽管 MGS 的视力预后总体欠佳，但<strong>系统的患者支持和生活质量干预</strong>能够显著改善患儿及其家庭的长期福祉。现代眼科管理已从单纯的"治病"转向"以患者为中心"的综合关怀模式。</p>
+      <p>对于儿童 MGS 患者，家庭支持和心理干预与医学治疗同等重要。家长的情绪状态、对疾病的理解程度，直接影响患儿的治疗依从性和心理发展。建议通过<strong>规范的家属教育、同伴支持团体、心理咨询</strong>来减轻长期疾病带来的压力。</p>
+      <p>多学科团队（MDT）协作已成为国际公认的最佳管理模式，整合眼科、神经科、内分泌科、肾脏科、心理科与康复科资源，为每位患者提供个体化方案。</p>
+    </div>
+    <div class="support-card-grid">
+      <div class="support-card">
+        <span class="icon">👨‍👩‍👧</span>
+        <h4>家庭教育与咨询</h4>
+        <p>向家长详细解释疾病性质、预后和管理计划，减少焦虑与误解，提高治疗依从性</p>
+      </div>
+      <div class="support-card">
+        <span class="icon">💭</span>
+        <h4>心理支持</h4>
+        <p>儿童及青少年的自我认同辅导；青春期斜视、视力问题带来的社交焦虑干预</p>
+      </div>
+      <div class="support-card">
+        <span class="icon">🎓</span>
+        <h4>教育支持</h4>
+        <p>学校无障碍适配：特殊座位安排、大字教材、辅助技术，确保学习机会公平</p>
+      </div>
+      <div class="support-card">
+        <span class="icon">🤝</span>
+        <h4>同伴社群</h4>
+        <p>连接罕见眼病患者社群与 Orphanet 等资源，分享经验、减少孤立感</p>
+      </div>
+      <div class="support-card">
+        <span class="icon">💼</span>
+        <h4>职业规划指导</h4>
+        <p>针对成年患者提供职业选择建议，避免对视力要求过高的岗位，强调能力导向</p>
+      </div>
+      <div class="support-card">
+        <span class="icon">🧬</span>
+        <h4>遗传咨询</h4>
+        <p>为有生育计划的家庭提供遗传风险评估，PAX2/PAX6/MMP19 基因检测</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mdt-panel">
+    <h3>多学科协作团队（MDT）</h3>
+    <p>Multi-Disciplinary Team for Morning Glory Syndrome</p>
+    <div class="mdt-grid">
+      <div class="mdt-role">
+        <span class="mdt-icon">👁</span>
+        <span class="mdt-name">眼科医师</span>
+        <span class="mdt-role-desc">诊断 · 手术 · 随访</span>
+      </div>
+      <div class="mdt-role">
+        <span class="mdt-icon">🧠</span>
+        <span class="mdt-name">神经科医师</span>
+        <span class="mdt-role-desc">烟雾病筛查 · 脑膨出评估</span>
+      </div>
+      <div class="mdt-role">
+        <span class="mdt-icon">⚗️</span>
+        <span class="mdt-name">内分泌科医师</span>
+        <span class="mdt-role-desc">垂体功能 · 激素替代</span>
+      </div>
+      <div class="mdt-role">
+        <span class="mdt-icon">🫘</span>
+        <span class="mdt-name">肾脏科医师</span>
+        <span class="mdt-role-desc">肾功能监测 · 遗传评估</span>
+      </div>
+      <div class="mdt-role">
+        <span class="mdt-icon">💫</span>
+        <span class="mdt-name">康复治疗师</span>
+        <span class="mdt-role-desc">视觉康复 · 定向行动</span>
+      </div>
+      <div class="mdt-role">
+        <span class="mdt-icon">❤️</span>
+        <span class="mdt-name">心理咨询师</span>
+        <span class="mdt-role-desc">儿童心理 · 家庭支持</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="section-header">
+    <h2>典型病例分析</h2>
+    <p>三个代表性临床案例展示</p>
+    <div class="divider"></div>
+  </div>
+  <div class="case-cards">
+    <div class="case-card">
+      <h3>病例1：MGS合并视网膜脱离</h3>
+      <div class="case-meta">
+        <span>患者：女，5岁</span>
+        <span>主诉：右眼视力差1年</span>
+      </div>
+      <p><strong>检查：</strong>右眼视盘扩大呈漏斗状凹陷，中央可见白色胶质组织团块，视盘周围色素紊乱，视网膜血管呈放射状走行。OCT显示后极部浅层视网膜脱离。</p>
+      <div class="case-outcome">
+        <strong>治疗：</strong>玻璃体切割术 + 硅油填充 → 视网膜复位，视力改善至0.1
+      </div>
+    </div>
+    <div class="case-card">
+      <h3>病例2：MGS合并烟雾病</h3>
+      <div class="case-meta">
+        <span>患者：男，8岁</span>
+        <span>主诉：左眼视力差伴反复头痛</span>
+      </div>
+      <p><strong>检查：</strong>左眼视力数指/50cm，眼底示典型MGS改变。脑MRA发现双侧颈内动脉远端进行性狭窄伴异常血管网形成。</p>
+      <div class="case-outcome">
+        <strong>治疗：</strong>神经外科血管重建术 + 屈光矫正和弱视治疗 → 多学科协作管理
+      </div>
+    </div>
+    <div class="case-card">
+      <h3>病例3：MGS合并基底脑膨出</h3>
+      <div class="case-meta">
+        <span>患者：女，3岁</span>
+        <span>主诉：眼距增宽、鼻根扁平、右眼白瞳</span>
+      </div>
+      <p><strong>检查：</strong>右眼底示MGS改变，脑MRI发现经蝶基底脑膨出（内含视交叉和下丘脑组织），胼胝体发育不全。内分泌评估发现生长激素缺乏。</p>
+      <div class="case-outcome">
+        <strong>治疗：</strong>多学科协作管理 → 内分泌替代治疗 + 眼科长期随访
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREVENTION -->
+<section id="prevention" style="background: var(--light-gray); max-width: 100%; padding: 5rem 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-header">
+      <h2>预防与早期发现策略</h2>
+      <p>先天性疾病无法根本预防，但早期发现可减少并发症</p>
+      <div class="divider"></div>
+    </div>
+    <div class="prevention-grid">
+      <div class="prevention-card">
+        <div class="prevention-num">1</div>
+        <h4>新生儿筛查</h4>
+        <p>对所有新生儿进行红光反射检查，及时发现瞳孔异常反光</p>
+      </div>
+      <div class="prevention-card">
+        <div class="prevention-num">2</div>
+        <h4>高危人群监测</h4>
+        <p>有家族史者应进行详细眼底检查，特别关注视盘形态</p>
+      </div>
+      <div class="prevention-card">
+        <div class="prevention-num">3</div>
+        <h4>儿童视力筛查</h4>
+        <p>3-5岁儿童应接受常规视力检测，对异常者全面评估</p>
+      </div>
+      <div class="prevention-card">
+        <div class="prevention-num">4</div>
+        <h4>早期屈光矫正</h4>
+        <p>确诊即开始屈光矫正和弱视治疗，最大化残余视功能</p>
+      </div>
+      <div class="prevention-card">
+        <div class="prevention-num">5</div>
+        <h4>影像学排查</h4>
+        <p>尽早完成脑MRI/MRA，排除脑膨出和烟雾病等颅内异常</p>
+      </div>
+      <div class="prevention-card">
+        <div class="prevention-num">6</div>
+        <h4>遗传咨询</h4>
+        <p>有家族史者建议PAX2/PAX6基因检测，评估遗传风险</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="section-header">
+    <h2>宣传图片</h2>
+    <p>AI生成的医学教育宣传素材</p>
+    <div class="divider"></div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="images/mgs_fundus_illustration.png" alt="MGS眼底示意图" onerror="this.parentElement.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.5);font-size:0.9rem&quot;>眼底与牵牛花对比示意图</div>'">
+      <div class="gallery-caption">MGS眼底与牵牛花形态对比</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/mgs_awareness_banner.png" alt="MGS宣传横幅" onerror="this.parentElement.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.5);font-size:0.9rem&quot;>医学宣传横幅</div>'">
+      <div class="gallery-caption">早期发现 守护视力</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/mgs_multidisciplinary.png" alt="多学科协作" onerror="this.parentElement.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.5);font-size:0.9rem&quot;>多学科协作管理示意图</div>'">
+      <div class="gallery-caption">多学科协作管理</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="refs">
+    <h3>参考文献 References</h3>
+    <p>
+      <strong>经典文献 Classical Literature：</strong><br>
+      [1] Kindler P. Morning glory syndrome: unusual congenital optic disc anomaly. Am J Ophthalmol. 1970;69(3):376-384.<br>
+      [2] Pollock S. The morning glory disc anomaly: contractile movement, classification, and embryogenesis. Doc Ophthalmol. 1987;65(4):439-460.<br>
+      [3] Haik BG, et al. Retinal detachment in the morning glory anomaly. Ophthalmology. 1984;91(12):1638-1647.<br>
+      [4] Brodsky MC. Congenital optic disc anomalies. Surv Ophthalmol. 1994;39(2):89-112.<br>
+      [5] Lenhart PD, Lambert SR, et al. Intracranial vascular anomalies in patients with morning glory disc anomaly. Am J Ophthalmol. 2006;142(4):644-650.<br>
+      [6] Lee BJ, Traboulsi EI. Update on the morning glory disc anomaly. Ophthalmic Genet. 2008;29(2):47-52.<br>
+      [7] Cennamo G, et al. Evaluation of morning glory syndrome with spectral OCT and echography. Ophthalmology. 2010;117(6):1269-1273.<br>
+      [8] Ellika S, et al. Morning glory disc anomaly: characteristic MR imaging findings. AJNR. 2013;34(10):2010-2014.<br>
+      [9] Ceynowa DJ, et al. Morning glory disc anomaly in childhood - a population-based study. Acta Ophthalmol. 2015;93(2):154-158.<br>
+      <br>
+      <strong>近期研究 Recent Research (2020-2025)：</strong><br>
+      [10] Morganti LRG, et al. Morning glory disc anomaly and its implications in moyamoya arteriopathy: a retrospective case series. J Neurosurg Pediatr. 2023;31(6):617-625.<br>
+      [11] Hazlewood RJ, et al. Association of MMP19 mutation with cavity optic disc anomaly. Ophthalmology. 2021;128(11):1630-1638.<br>
+      [12] Pilotto E, et al. Total retinal detachment and contractile movement of the disc in eyes with morning glory syndrome. Am J Ophthalmol Case Rep. 2020;20:100926.<br>
+      [13] Moyamoya Disease Associated With MGDA and Other Ophthalmic Findings: A Mini-Review. Front Neurol. 2020;11:338.<br>
+      [14] MGDA associated with moyamoya disease and pituitary stalk duplication. Am J Ophthalmol Case Rep. 2022.<br>
+      [15] Rare triad of MGDA, moyamoya, transsphenoidal cephalocele. Neurol Sci. 2021;42:3963-3968.<br>
+      [16] Surgical challenges in the management of MGDA-associated retinal detachment. Indian J Ophthalmol. 2021;PMC8544114.<br>
+      [17] Outcomes of vitreoretinal surgery in retinal detachment associated with MGDA. PMC8482902. 2021.<br>
+      <br>
+      <strong>2024 新进展 Novel Advances：</strong><br>
+      [18] Rapid Resolution of Serous Retinal Detachment in MGDA With Oral Acetazolamide Treatment. Am J Ophthalmol Case Rep. 2024;PubMed 38917399.<br>
+      [19] Vitrectomy Combined With Gas Tamponade for MGS With Rhegmatogenous Retinal Detachment: A Case Report. Front Med. 2024;PMC11887515.<br>
+      [20] Management of Retinal Detachment Associated with Morning Glory Disc Syndrome (Human Amniotic Membrane Patch). Case Rep Ophthalmol. 2024;12(2):457.<br>
+      <br>
+      <strong>并发症与机制研究：</strong><br>
+      [21] Choroidal Neovascularization Associated with MGS: A Case Report. Fortune J Health Sci. Bevacizumab Treatment.<br>
+      [22] Clinical characteristics and treatment of 22 eyes of MGS associated with PHPV. PMC3786642.<br>
+      [23] Parsa CF, Robert MP. Thromboembolism and congenital malformations: from MGS to PHACE syndrome. J Neuroophthalmol. 2013;33(2):170-173.<br>
+      [24] Rehabilitation on functional amblyopia in Morning Glory Syndrome. PubMed 18268439.
+    </p>
+  </div>
+  <div class="copyright">
+    <p>本网页仅供医学教育参考 · For Medical Education Reference Only<br>
+    牵牛花综合征临床综述 · Morning Glory Syndrome Clinical Review · 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
