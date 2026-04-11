@@ -571,43 +571,190 @@
   }
 
   /* ===== CASES ===== */
+  .cases-intro {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem 1.8rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-left: 4px solid var(--accent);
+    margin-bottom: 2rem;
+    font-size: 0.92rem; color: var(--dark); line-height: 1.8;
+  }
+
   .case-cards {
-    display: grid; gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
   .case-card {
     background: #fff; border-radius: 12px;
-    padding: 2rem;
+    padding: 1.8rem;
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    border-left: 5px solid;
+    border-left: 5px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s;
   }
 
-  .case-card:nth-child(1) { border-color: var(--secondary); }
-  .case-card:nth-child(2) { border-color: var(--coral); }
-  .case-card:nth-child(3) { border-color: var(--gold); }
+  .case-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
 
-  .case-card h3 { margin-bottom: 0.8rem; font-size: 1.1rem; }
-  .case-card:nth-child(1) h3 { color: var(--secondary); }
-  .case-card:nth-child(2) h3 { color: var(--coral); }
-  .case-card:nth-child(3) h3 { color: var(--gold); }
+  .case-card:nth-child(6n+1) { border-color: var(--secondary); }
+  .case-card:nth-child(6n+2) { border-color: var(--coral); }
+  .case-card:nth-child(6n+3) { border-color: var(--gold); }
+  .case-card:nth-child(6n+4) { border-color: var(--accent); }
+  .case-card:nth-child(6n+5) { border-color: var(--primary); }
+  .case-card:nth-child(6n)   { border-color: var(--secondary); }
+
+  .case-age-tag {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 12px;
+    margin-bottom: 0.7rem;
+    letter-spacing: 0.5px;
+    align-self: flex-start;
+  }
+
+  .case-card h3 {
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+    color: var(--primary);
+    line-height: 1.45;
+  }
 
   .case-meta {
-    display: flex; gap: 1.5rem;
+    font-size: 0.78rem;
+    color: var(--gray);
     margin-bottom: 0.8rem;
-    font-size: 0.85rem; color: var(--gray);
+    font-style: italic;
   }
 
   .case-card p {
-    font-size: 0.9rem; color: var(--dark); line-height: 1.7;
-    margin-bottom: 0.5rem;
+    font-size: 0.88rem; color: var(--dark); line-height: 1.7;
+    margin-bottom: 0.6rem;
   }
 
   .case-outcome {
     background: var(--light);
     border-radius: 6px;
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    margin-top: auto;
+    margin-bottom: 0.8rem;
+    color: var(--primary);
+  }
+
+  .case-ref {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.6rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--light-gray);
+    border-radius: 5px;
+    color: var(--secondary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    align-self: flex-start;
+  }
+
+  .case-ref:hover {
+    background: var(--secondary);
+    color: #fff;
+    transform: translateX(2px);
+  }
+
+  /* ===== PATIENT RESOURCES PANEL ===== */
+  .resources-panel {
+    background: linear-gradient(135deg, #FEF5E7 0%, #FDEBD0 100%);
+    border: 1px solid var(--gold);
+    border-radius: 16px;
+    padding: 2rem 2.2rem;
+    margin-top: 2.5rem;
+  }
+
+  .resources-panel h3 {
+    color: #B9770E;
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .resources-panel > p {
+    color: var(--dark);
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.75;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .resource-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.1rem 1.3rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-left: 3px solid var(--gold);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s;
+    display: block;
+  }
+
+  .resource-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: var(--coral);
+  }
+
+  .resource-card .res-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
+  }
+
+  .resource-card h4 {
+    color: var(--primary);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .resource-card .res-badge {
+    background: var(--gold);
+    color: #fff;
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+  }
+
+  .resource-card p {
+    color: var(--gray);
+    font-size: 0.78rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .resource-card .res-arrow {
+    color: var(--accent);
+    font-size: 0.75rem;
+    margin-top: 0.4rem;
+    display: inline-block;
   }
 
   /* ===== PREVENTION ===== */
@@ -1103,7 +1250,9 @@
     .paper-cards,
     .treatment-tabs,
     .treatment-list,
-    .support-card-grid { grid-template-columns: 1fr; }
+    .support-card-grid,
+    .case-cards,
+    .resources-grid { grid-template-columns: 1fr; }
     .stats-row { grid-template-columns: repeat(2, 1fr); }
     .mdt-grid { grid-template-columns: repeat(2, 1fr); }
     .genetics-panel { grid-template-columns: 1fr; }
@@ -1879,49 +2028,172 @@
       </div>
     </div>
   </div>
+
+  <div class="resources-panel">
+    <h3>🌐 国际与国内资源 · Patient Resources &amp; Support Organizations</h3>
+    <p>以下为国际公认的罕见病数据库与患者支持组织。Orphanet 登记的 MGS（ORPHA 35737）数据显示该疾病在瑞典 2–19 岁人群中的患病率约为 <strong>1/38,500</strong>。各平台提供疾病百科、专家中心名录、临床试验信息、患者注册表以及家庭互助社群，建议患者与家属收藏备用。</p>
+    <div class="resources-grid">
+      <a class="resource-card" href="https://www.orpha.net/en/disease/detail/35737" target="_blank" rel="noopener">
+        <div class="res-header">
+          <h4>Orphanet — 罕见病百科</h4>
+          <span class="res-badge">国际权威</span>
+        </div>
+        <p>欧盟资助的罕见病与孤儿药权威数据库。MGS 条目 ORPHA 35737，包含 239 个专家中心、123 个患者组织、50 个研究注册表。</p>
+        <span class="res-arrow">→ 查看疾病主页</span>
+      </a>
+
+      <a class="resource-card" href="https://rarediseases.info.nih.gov/diseases/13354/morning-glory-syndrome" target="_blank" rel="noopener">
+        <div class="res-header">
+          <h4>GARD — 美国 NIH 罕见病中心</h4>
+          <span class="res-badge">美国 NIH</span>
+        </div>
+        <p>美国国立卫生研究院（NIH）遗传与罕见病信息中心提供的 MGS 通俗说明，含症状、诊断、治疗与当前研究进展。</p>
+        <span class="res-arrow">→ 访问 GARD 页面</span>
+      </a>
+
+      <a class="resource-card" href="https://rarediseases.org/rare-diseases/" target="_blank" rel="noopener">
+        <div class="res-header">
+          <h4>NORD — 美国罕见病组织</h4>
+          <span class="res-badge">患者援助</span>
+        </div>
+        <p>美国罕见病组织，提供患者援助项目（部分含经济支持）、疾病资料库、倡导活动与医生查询服务。</p>
+        <span class="res-arrow">→ 查询罕见病列表</span>
+      </a>
+
+      <a class="resource-card" href="http://www.raredisease.cn/" target="_blank" rel="noopener">
+        <div class="res-header">
+          <h4>中国罕见病信息网</h4>
+          <span class="res-badge">中文资源</span>
+        </div>
+        <p>中国罕见病联盟 + 北京协和医院主办，提供罕见病目录、诊疗指南、定点医院查询、登记注册系统与患者关爱项目。</p>
+        <span class="res-arrow">→ 进入主页</span>
+      </a>
+
+      <a class="resource-card" href="https://www.chinaicf.org/" target="_blank" rel="noopener">
+        <div class="res-header">
+          <h4>病痛挑战基金会</h4>
+          <span class="res-badge">公益机构</span>
+        </div>
+        <p>专注罕见病群体的公益组织，提供医疗救助、心理支持、政策倡导和患者组织孵化服务。</p>
+        <span class="res-arrow">→ 申请援助</span>
+      </a>
+
+      <a class="resource-card" href="https://ojrd.biomedcentral.com/" target="_blank" rel="noopener">
+        <div class="res-header">
+          <h4>Orphanet Journal of Rare Diseases</h4>
+          <span class="res-badge">学术期刊</span>
+        </div>
+        <p>开放获取的罕见病专业期刊，可检索 MGS 最新研究论文、病例报告、治疗指南。适合医护人员与科研人员。</p>
+        <span class="res-arrow">→ 期刊首页</span>
+      </a>
+
+      <a class="resource-card" href="https://www.aao.org/education/disease-review/neuro-ophthalmology-morning-glory-syndrome" target="_blank" rel="noopener">
+        <div class="res-header">
+          <h4>AAO — 美国眼科学会疾病综述</h4>
+          <span class="res-badge">专业教育</span>
+        </div>
+        <p>美国眼科学会（AAO）提供的 MGS 神经眼科学专题综述，含诊断要点、影像学特征与管理共识。</p>
+        <span class="res-arrow">→ 阅读综述</span>
+      </a>
+
+      <a class="resource-card" href="https://eyewiki.org/Morning_Glory_Anomaly" target="_blank" rel="noopener">
+        <div class="res-header">
+          <h4>EyeWiki — 眼科百科</h4>
+          <span class="res-badge">快速参考</span>
+        </div>
+        <p>AAO 运营的眼科维基百科，协作式更新 MGS 的流行病学、临床特征、诊断与治疗；含丰富图片与交叉引用。</p>
+        <span class="res-arrow">→ 查看词条</span>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- CASES -->
 <section id="cases">
   <div class="section-header">
-    <h2>典型病例分析</h2>
-    <p>三个代表性临床案例展示</p>
+    <h2>真实临床病例</h2>
+    <p>Real-world Case Reports · 来自 PubMed / PMC 开放获取文献</p>
     <div class="divider"></div>
   </div>
+
+  <div class="cases-intro">
+    以下 <strong>6 个真实临床病例</strong>均来自同行评审期刊的已发表病例报告（涵盖新生儿、婴幼儿、学龄儿童与成人），展示 MGS 在不同年龄、不同合并症和不同治疗策略下的多样化表现与结局。每张卡片下方提供原文链接，可直接跳转至 PubMed 或 PMC 查阅完整报告。
+  </div>
+
   <div class="case-cards">
+
     <div class="case-card">
-      <h3>病例1：MGS合并视网膜脱离</h3>
-      <div class="case-meta">
-        <span>患者：女，5岁</span>
-        <span>主诉：右眼视力差1年</span>
-      </div>
-      <p><strong>检查：</strong>右眼视盘扩大呈漏斗状凹陷，中央可见白色胶质组织团块，视盘周围色素紊乱，视网膜血管呈放射状走行。OCT显示后极部浅层视网膜脱离。</p>
+      <span class="case-age-tag">新生儿期 · 2 周龄</span>
+      <h3>最早期诊断 — 新生儿眼底筛查发现的 MGS</h3>
+      <div class="case-meta">JAMA Ophthalmology · 2024</div>
+      <p>一例 2 周大新生儿在常规新生儿眼底筛查中发现典型牵牛花样视盘异常。眼底检查显示视盘扩大、漏斗状凹陷伴中央白色胶质组织。</p>
+      <p><strong>临床意义：</strong>证实了新生儿红光反射 + 眼底筛查可在出生后数周内检出 MGS，为后续脑影像学评估和早期干预创造窗口期。</p>
       <div class="case-outcome">
-        <strong>治疗：</strong>玻璃体切割术 + 硅油填充 → 视网膜复位，视力改善至0.1
+        <strong>处理：</strong>立即行脑 MRI/MRA 筛查、建立多学科随访计划
       </div>
+      <a class="case-ref" href="https://jamanetwork.com/journals/jamaophthalmology/article-abstract/2817387" target="_blank" rel="noopener">📖 JAMA Ophthalmol 2024 →</a>
     </div>
+
     <div class="case-card">
-      <h3>病例2：MGS合并烟雾病</h3>
-      <div class="case-meta">
-        <span>患者：男，8岁</span>
-        <span>主诉：左眼视力差伴反复头痛</span>
-      </div>
-      <p><strong>检查：</strong>左眼视力数指/50cm，眼底示典型MGS改变。脑MRA发现双侧颈内动脉远端进行性狭窄伴异常血管网形成。</p>
+      <span class="case-age-tag">新生儿期 · 22 日龄</span>
+      <h3>双侧 MGS + 经蝶骨脑膨出 + 中线唇裂</h3>
+      <div class="case-meta">Neurosurgery / Child's Nervous System · Case Report</div>
+      <p>一例 22 日龄男婴因<strong>呼吸困难伴口腔软组织肿块</strong>就诊。检查发现：双侧 MGS、经蝶骨脑膨出（疝入口腔）、中线唇裂、胼胝体发育不全。</p>
+      <p><strong>临床意义：</strong>中线面部畸形 + 牵牛花样视盘必须立即排查基底脑膨出，该组合可致命。典型的多系统先天发育异常综合征。</p>
       <div class="case-outcome">
-        <strong>治疗：</strong>神经外科血管重建术 + 屈光矫正和弱视治疗 → 多学科协作管理
+        <strong>处理：</strong>神经外科脑膨出修复 + 唇裂修复 + 终身眼科随访
       </div>
+      <a class="case-ref" href="https://link.springer.com/article/10.1007/s00381-003-0869-z" target="_blank" rel="noopener">📖 Childs Nerv Syst →</a>
     </div>
+
     <div class="case-card">
-      <h3>病例3：MGS合并基底脑膨出</h3>
-      <div class="case-meta">
-        <span>患者：女，3岁</span>
-        <span>主诉：眼距增宽、鼻根扁平、右眼白瞳</span>
-      </div>
-      <p><strong>检查：</strong>右眼底示MGS改变，脑MRI发现经蝶基底脑膨出（内含视交叉和下丘脑组织），胼胝体发育不全。内分泌评估发现生长激素缺乏。</p>
+      <span class="case-age-tag">婴儿期 · 1 岁</span>
+      <h3>双侧 MGS + 双侧 PFV + Joubert 综合征</h3>
+      <div class="case-meta">Case Rep Ophthalmol Med · 2020 · PMC7439159</div>
+      <p>一例 1 岁女童因<strong>双侧眼睑下垂、固视不良、运动发育迟缓</strong>转诊。眼底检查：双侧大而发育不良的视盘、放射状血管、纤维性胶质组织；左眼中央凹陷伴纤维血管条索。</p>
+      <p><strong>临床意义：</strong>全球首例报告的双侧 MGS + 双侧持续性胎儿血管 (PFV) + Joubert 综合征联合表型。凸显 MGS 神经系统评估的重要性——后脑发育异常可能被漏诊。</p>
       <div class="case-outcome">
-        <strong>治疗：</strong>多学科协作管理 → 内分泌替代治疗 + 眼科长期随访
+        <strong>处理：</strong>多学科综合评估 + 康复训练 + 弱视管理
       </div>
+      <a class="case-ref" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7439159/" target="_blank" rel="noopener">📖 PMC7439159 →</a>
     </div>
+
+    <div class="case-card">
+      <span class="case-age-tag">学龄期 · 长期随访</span>
+      <h3>非典型 MGS + PFV 的术后长期观察</h3>
+      <div class="case-meta">BMC Ophthalmology · 2019 · 12886-019-1154-6</div>
+      <p>报道一例非典型牵牛花综合征合并持续性胎儿血管系统 (PFV) 患儿，详细记录<strong>术后数年的眼底与 OCT 演变过程</strong>，包括视盘形态稳定性、视网膜再附情况及屈光变化。</p>
+      <p><strong>临床意义：</strong>填补了 MGS 术后长期自然史的数据空白，为家属提供了"术后 5 年能恢复到什么程度"的现实预期参考。</p>
+      <div class="case-outcome">
+        <strong>处理：</strong>玻璃体视网膜手术 + 规律随访 + 视觉康复训练
+      </div>
+      <a class="case-ref" href="https://bmcophthalmol.biomedcentral.com/articles/10.1186/s12886-019-1154-6" target="_blank" rel="noopener">📖 BMC Ophthalmol →</a>
+    </div>
+
+    <div class="case-card">
+      <span class="case-age-tag">成人期 · 35 岁</span>
+      <h3>高度近视 MGS 合并孔源性视网膜脱离</h3>
+      <div class="case-meta">Clin Ophthalmol · 2012 · PMC3340658</div>
+      <p>一例 35 岁男性，<strong>6 天前突发闪光感伴颞侧视野缺损</strong>。既往高度近视 (-20.0 D)，右眼最佳矫正视力 CF/10cm。眼底检查确诊 MGS 合并孔源性视网膜脱离。</p>
+      <p><strong>临床意义：</strong>证明 MGS 可延迟至成年才出现严重并发症，单侧高度近视 + 快速视力下降应警惕先天性视盘异常漏诊。一次手术即达解剖复位，视力改善。</p>
+      <div class="case-outcome">
+        <strong>治疗：</strong>经睫状体平坦部玻璃体切割术 + 硅油填充 → 一次手术视网膜成功复位
+      </div>
+      <a class="case-ref" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3340658/" target="_blank" rel="noopener">📖 PMC3340658 →</a>
+    </div>
+
+    <div class="case-card">
+      <span class="case-age-tag">成人期 · 术中创新</span>
+      <h3>术中 OCT 实时引导的 MGS 视网膜脱离手术</h3>
+      <div class="case-meta">Indian J Ophthalmol · 2017 · PMC5540621</div>
+      <p>报道利用<strong>术中光学相干断层扫描 (iOCT)</strong>实时分析 MGS 合并视网膜脱离的玻璃体切割术。iOCT 可在术中即时显示视盘凹陷底部的玻璃体视网膜界面、视网膜下液深度和裂孔位置。</p>
+      <p><strong>临床意义：</strong>iOCT 引导使外科医生能够精准评估胶质组织剥离深度、避免医源性视神经损伤，代表 MGS 手术技术的前沿方向。</p>
+      <div class="case-outcome">
+        <strong>治疗：</strong>iOCT 辅助 PPV + 曲安奈德染色 + 长效气体填充 → 成功复位
+      </div>
+      <a class="case-ref" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5540621/" target="_blank" rel="noopener">📖 PMC5540621 →</a>
+    </div>
+
   </div>
 </section>
 
