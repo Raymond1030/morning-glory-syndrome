@@ -709,6 +709,39 @@
     border-top: 1px dashed #e5e5e5;
   }
 
+  .paper-link {
+    display: inline-flex;
+    align-items: center; gap: 0.3rem;
+    margin-top: 0.9rem;
+    padding: 0.45rem 0.95rem;
+    background: var(--light);
+    color: var(--primary);
+    font-size: 0.78rem; font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+    align-self: flex-start;
+  }
+
+  .paper-link:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateX(3px);
+    box-shadow: 0 3px 10px rgba(26,188,156,0.35);
+  }
+
+  a.evidence-tag {
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  a.evidence-tag:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+
   .paper-tag {
     background: var(--light);
     color: var(--primary);
@@ -1029,6 +1062,18 @@
   footer .refs p {
     color: rgba(255,255,255,0.6); font-size: 0.8rem;
     line-height: 1.8;
+  }
+
+  footer .refs a {
+    color: rgba(255,255,255,0.72);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(26,188,156,0.4);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  footer .refs a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
   }
 
   footer .copyright {
@@ -1441,6 +1486,7 @@
         <span class="paper-tag">浆液性脱离</span>
         <span class="paper-tag">儿童</span>
       </div>
+      <a class="paper-link" href="https://pubmed.ncbi.nlm.nih.gov/38917399/" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
 
     <div class="paper-card">
@@ -1452,6 +1498,7 @@
         <span class="paper-tag">手术创新</span>
         <span class="paper-tag">气体填充</span>
       </div>
+      <a class="paper-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11887515/" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
 
     <div class="paper-card">
@@ -1463,6 +1510,7 @@
         <span class="paper-tag">再生医学</span>
         <span class="paper-tag">羊膜</span>
       </div>
+      <a class="paper-link" href="https://karger.com/cop/article/12/2/457/820638/Management-of-Retinal-Detachment-Associated-with" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
 
     <div class="paper-card">
@@ -1475,6 +1523,7 @@
         <span class="paper-tag">神经影像</span>
         <span class="paper-tag">筛查策略</span>
       </div>
+      <a class="paper-link" href="https://pubmed.ncbi.nlm.nih.gov/36933265/" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
 
     <div class="paper-card">
@@ -1486,6 +1535,7 @@
         <span class="paper-tag">胚胎发育</span>
         <span class="paper-tag">脑膨出</span>
       </div>
+      <a class="paper-link" href="https://link.springer.com/article/10.1007/s10072-021-05221-2" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
 
     <div class="paper-card">
@@ -1497,6 +1547,7 @@
         <span class="paper-tag">玻璃体视网膜</span>
         <span class="paper-tag">手术策略</span>
       </div>
+      <a class="paper-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8544114/" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
 
     <div class="paper-card">
@@ -1508,6 +1559,7 @@
         <span class="paper-tag">长期随访</span>
         <span class="paper-tag">解剖预后</span>
       </div>
+      <a class="paper-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8482902/" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
 
     <div class="paper-card">
@@ -1519,6 +1571,7 @@
         <span class="paper-tag">病理生理</span>
         <span class="paper-tag">OCT</span>
       </div>
+      <a class="paper-link" href="https://pubmed.ncbi.nlm.nih.gov/33117915/" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
 
     <div class="paper-card">
@@ -1530,17 +1583,19 @@
         <span class="paper-tag">综述</span>
         <span class="paper-tag">烟雾病</span>
       </div>
+      <a class="paper-link" href="https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2020.00338/full" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
 
     <div class="paper-card">
-      <span class="paper-year">2021</span>
-      <h4>MMP19 基因与空洞性视盘异常的家族性关联</h4>
-      <div class="authors">Hazlewood et al. · Ophthalmology 128(11):1630</div>
-      <p class="finding">在空洞性视盘异常（CODA）大家系中发现 <strong>MMP19 基因突变</strong>，部分患者表型与 MGS 重叠，家族性 CODA 约 65% 为双侧受累。拓展 MGS 遗传学谱，提示细胞外基质重塑在视盘异常发育中的作用。</p>
+      <span class="paper-year">2015</span>
+      <h4>MMP19 上游调控区三倍化与家族性空洞性视盘异常</h4>
+      <div class="authors">Hazlewood RJ et al. · Hum Mutat 36(3):369-378</div>
+      <p class="finding">在空洞性视盘异常（CODA）家系中发现 <strong>MMP19 上游调控序列的杂合三倍化</strong>，导致基质金属蛋白酶 19 的表达失调。部分患者表型与 MGS 重叠，家族性 CODA 约 65% 双侧受累。提示细胞外基质重塑在视盘异常发育中的关键作用。</p>
       <div class="tag-row">
         <span class="paper-tag">遗传学</span>
         <span class="paper-tag">MMP19</span>
       </div>
+      <a class="paper-link" href="https://pubmed.ncbi.nlm.nih.gov/25581579/" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
 
     <div class="paper-card">
@@ -1552,6 +1607,7 @@
         <span class="paper-tag">PHPV</span>
         <span class="paper-tag">并发症谱</span>
       </div>
+      <a class="paper-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3786642/" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
 
     <div class="paper-card">
@@ -1563,6 +1619,7 @@
         <span class="paper-tag">流行病学</span>
         <span class="paper-tag">脑血管</span>
       </div>
+      <a class="paper-link" href="https://pubmed.ncbi.nlm.nih.gov/17011858/" target="_blank" rel="noopener">📖 查看原文 →</a>
     </div>
   </div>
 
@@ -1625,11 +1682,11 @@
         <div class="en">Pharmacological Treatment Options</div>
         <div class="treatment-list">
           <div class="treatment-item">
-            <h5>口服乙酰唑胺<span class="evidence-tag new">2024 新进展</span></h5>
+            <h5>口服乙酰唑胺<a class="evidence-tag new" href="https://pubmed.ncbi.nlm.nih.gov/38917399/" target="_blank" rel="noopener">2024 新进展 ↗</a></h5>
             <p>适用于<strong>非孔源性浆液性视网膜脱离</strong>。通过减少视网膜色素上皮下液体渗出，可在数日内实现脱离复位，视力快速恢复。对儿童患者尤为友好，避免了手术创伤。</p>
           </div>
           <div class="treatment-item">
-            <h5>玻璃体腔注射贝伐单抗（抗 VEGF）<span class="evidence-tag">IIa 级证据</span></h5>
+            <h5>玻璃体腔注射贝伐单抗（抗 VEGF）<a class="evidence-tag" href="https://www.fortunejournals.com/articles/choroidal-neovascularization-associated-with-morning-glory-syndrome-a-case-report.html" target="_blank" rel="noopener">IIa 级证据 ↗</a></h5>
             <p>用于 MGS 合并<strong>脉络膜新生血管（CNV）</strong>的患者。单次 1.25 mg 注射即可实现视网膜下液吸收、CNV 退缩，报告显示视力可改善至 1.5，且 26 个月无复发。</p>
           </div>
           <div class="treatment-item">
@@ -1653,11 +1710,11 @@
             <p>一线手术：核心玻璃体切除 + 曲安奈德辅助后玻璃体脱离 + 基底部彻底刮除 + ILM/ERM 剥除 + 液气交换 + 裂孔激光光凝。<strong>多数研究报告解剖复位率 &gt; 85%</strong>。</p>
           </div>
           <div class="treatment-item">
-            <h5>PPV + C3F8 气体填充<span class="evidence-tag new">替代硅油</span></h5>
+            <h5>PPV + C3F8 气体填充<a class="evidence-tag new" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11887515/" target="_blank" rel="noopener">替代硅油 ↗</a></h5>
             <p>2024 年研究证实 C3F8 长效气体填充可达到与硅油相近的解剖复位效果，同时<strong>避免二次硅油取出手术</strong>和相关并发症（硅油乳化、角膜病变、继发性青光眼）。</p>
           </div>
           <div class="treatment-item">
-            <h5>人羊膜膜片视盘覆盖术<span class="evidence-tag new">2024 创新</span></h5>
+            <h5>人羊膜膜片视盘覆盖术<a class="evidence-tag new" href="https://karger.com/cop/article/12/2/457/820638/Management-of-Retinal-Detachment-Associated-with" target="_blank" rel="noopener">2024 创新 ↗</a></h5>
             <p>创新术式：将<strong>人羊膜膜片置于视盘凹陷表面</strong>，联合气体/硅油填充。旨在物理封闭蛛网膜下腔-视网膜下腔异常通道，减少脑脊液渗漏相关的复发性脱离。</p>
           </div>
           <div class="treatment-item">
@@ -1689,7 +1746,7 @@
             <p>MGS 患者常伴<strong>高度屈光不正和屈光参差</strong>。确诊后应立即进行睫状肌麻痹验光并配戴全矫眼镜，这是防止剥夺性弱视的第一步。</p>
           </div>
           <div class="treatment-item">
-            <h5>遮盖疗法<span class="evidence-tag">循证证据</span></h5>
+            <h5>遮盖疗法<a class="evidence-tag" href="https://pubmed.ncbi.nlm.nih.gov/18268439/" target="_blank" rel="noopener">循证证据 ↗</a></h5>
             <p>对<strong>感觉成熟期（&lt; 8 岁）</strong>的单侧 MGS 患者进行健眼遮盖。已有文献报告：3.8 岁患儿经 5 年遮盖治疗后，视力从数指 0.3 m 改善至 20/100。</p>
           </div>
           <div class="treatment-item">
@@ -1721,7 +1778,7 @@
             <p><strong>每 3-6 个月散瞳眼底检查</strong>（年幼儿童）及 OCT，监测视网膜脱离早期征象、胶质组织变化、对侧眼发育。</p>
           </div>
           <div class="treatment-item">
-            <h5>脑 MRI / MRA 随访<span class="evidence-tag">2023 推荐</span></h5>
+            <h5>脑 MRI / MRA 随访<a class="evidence-tag" href="https://pubmed.ncbi.nlm.nih.gov/36933265/" target="_blank" rel="noopener">2023 推荐 ↗</a></h5>
             <p>所有 MGDA 患者均应<strong>每 6 个月行脑血管影像检查</strong>，监测烟雾病进展。即使基线正常，随访期间仍可能出现新发血管异常。</p>
           </div>
           <div class="treatment-item">
@@ -1937,39 +1994,39 @@
 <!-- FOOTER -->
 <footer>
   <div class="refs">
-    <h3>参考文献 References</h3>
+    <h3>参考文献 References · 点击跳转原文</h3>
     <p>
       <strong>经典文献 Classical Literature：</strong><br>
-      [1] Kindler P. Morning glory syndrome: unusual congenital optic disc anomaly. Am J Ophthalmol. 1970;69(3):376-384.<br>
-      [2] Pollock S. The morning glory disc anomaly: contractile movement, classification, and embryogenesis. Doc Ophthalmol. 1987;65(4):439-460.<br>
-      [3] Haik BG, et al. Retinal detachment in the morning glory anomaly. Ophthalmology. 1984;91(12):1638-1647.<br>
-      [4] Brodsky MC. Congenital optic disc anomalies. Surv Ophthalmol. 1994;39(2):89-112.<br>
-      [5] Lenhart PD, Lambert SR, et al. Intracranial vascular anomalies in patients with morning glory disc anomaly. Am J Ophthalmol. 2006;142(4):644-650.<br>
-      [6] Lee BJ, Traboulsi EI. Update on the morning glory disc anomaly. Ophthalmic Genet. 2008;29(2):47-52.<br>
-      [7] Cennamo G, et al. Evaluation of morning glory syndrome with spectral OCT and echography. Ophthalmology. 2010;117(6):1269-1273.<br>
-      [8] Ellika S, et al. Morning glory disc anomaly: characteristic MR imaging findings. AJNR. 2013;34(10):2010-2014.<br>
-      [9] Ceynowa DJ, et al. Morning glory disc anomaly in childhood - a population-based study. Acta Ophthalmol. 2015;93(2):154-158.<br>
+      [1] <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Kindler+morning+glory+syndrome+1970" target="_blank" rel="noopener">Kindler P. Morning glory syndrome: unusual congenital optic disc anomaly. Am J Ophthalmol. 1970;69(3):376-384.</a><br>
+      [2] <a href="https://link.springer.com/article/10.1007/BF00143047" target="_blank" rel="noopener">Pollock S. The morning glory disc anomaly: contractile movement, classification, and embryogenesis. Doc Ophthalmol. 1987;65(4):439-460.</a><br>
+      [3] <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Haik+retinal+detachment+morning+glory+1984" target="_blank" rel="noopener">Haik BG, et al. Retinal detachment in the morning glory anomaly. Ophthalmology. 1984;91(12):1638-1647.</a><br>
+      [4] <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Brodsky+congenital+optic+disc+anomalies+1994" target="_blank" rel="noopener">Brodsky MC. Congenital optic disc anomalies. Surv Ophthalmol. 1994;39(2):89-112.</a><br>
+      [5] <a href="https://pubmed.ncbi.nlm.nih.gov/17011858/" target="_blank" rel="noopener">Lenhart PD, Lambert SR, et al. Intracranial vascular anomalies in patients with morning glory disc anomaly. Am J Ophthalmol. 2006;142(4):644-650.</a><br>
+      [6] <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Lee+Traboulsi+morning+glory+disc+anomaly+2008" target="_blank" rel="noopener">Lee BJ, Traboulsi EI. Update on the morning glory disc anomaly. Ophthalmic Genet. 2008;29(2):47-52.</a><br>
+      [7] <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Cennamo+morning+glory+OCT+2010" target="_blank" rel="noopener">Cennamo G, et al. Evaluation of morning glory syndrome with spectral OCT and echography. Ophthalmology. 2010;117(6):1269-1273.</a><br>
+      [8] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7965417/" target="_blank" rel="noopener">Ellika S, et al. Morning glory disc anomaly: characteristic MR imaging findings. AJNR. 2013;34(10):2010-2014.</a><br>
+      [9] <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Ceynowa+morning+glory+disc+anomaly+childhood+2015" target="_blank" rel="noopener">Ceynowa DJ, et al. Morning glory disc anomaly in childhood - a population-based study. Acta Ophthalmol. 2015;93(2):154-158.</a><br>
       <br>
-      <strong>近期研究 Recent Research (2020-2025)：</strong><br>
-      [10] Morganti LRG, et al. Morning glory disc anomaly and its implications in moyamoya arteriopathy: a retrospective case series. J Neurosurg Pediatr. 2023;31(6):617-625.<br>
-      [11] Hazlewood RJ, et al. Association of MMP19 mutation with cavity optic disc anomaly. Ophthalmology. 2021;128(11):1630-1638.<br>
-      [12] Pilotto E, et al. Total retinal detachment and contractile movement of the disc in eyes with morning glory syndrome. Am J Ophthalmol Case Rep. 2020;20:100926.<br>
-      [13] Moyamoya Disease Associated With MGDA and Other Ophthalmic Findings: A Mini-Review. Front Neurol. 2020;11:338.<br>
-      [14] MGDA associated with moyamoya disease and pituitary stalk duplication. Am J Ophthalmol Case Rep. 2022.<br>
-      [15] Rare triad of MGDA, moyamoya, transsphenoidal cephalocele. Neurol Sci. 2021;42:3963-3968.<br>
-      [16] Surgical challenges in the management of MGDA-associated retinal detachment. Indian J Ophthalmol. 2021;PMC8544114.<br>
-      [17] Outcomes of vitreoretinal surgery in retinal detachment associated with MGDA. PMC8482902. 2021.<br>
+      <strong>近期研究 Recent Research (2015-2023)：</strong><br>
+      [10] <a href="https://pubmed.ncbi.nlm.nih.gov/36933265/" target="_blank" rel="noopener">Morganti LRG, et al. Morning glory disc anomaly and its implications in moyamoya arteriopathy: a retrospective case series. J Neurosurg Pediatr. 2023;31(6):617-625.</a><br>
+      [11] <a href="https://pubmed.ncbi.nlm.nih.gov/25581579/" target="_blank" rel="noopener">Hazlewood RJ, et al. Heterozygous triplication of upstream regulatory sequences leads to dysregulation of MMP19 in patients with cavitary optic disc anomaly (CODA). Hum Mutat. 2015;36(3):369-378.</a><br>
+      [12] <a href="https://pubmed.ncbi.nlm.nih.gov/33117915/" target="_blank" rel="noopener">Pilotto E, et al. Total retinal detachment and contractile movement of the disc in eyes with morning glory syndrome. Am J Ophthalmol Case Rep. 2020;20:100926.</a><br>
+      [13] <a href="https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2020.00338/full" target="_blank" rel="noopener">Moyamoya Disease Associated With MGDA and Other Ophthalmic Findings: A Mini-Review. Front Neurol. 2020;11:338.</a><br>
+      [14] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9259472/" target="_blank" rel="noopener">MGDA associated with moyamoya disease and pituitary stalk duplication. Am J Ophthalmol Case Rep. 2022.</a><br>
+      [15] <a href="https://link.springer.com/article/10.1007/s10072-021-05221-2" target="_blank" rel="noopener">Rare triad of MGDA, moyamoya, transsphenoidal cephalocele. Neurol Sci. 2021;42:3963-3968.</a><br>
+      [16] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8544114/" target="_blank" rel="noopener">Surgical challenges in the management of MGDA-associated retinal detachment. Indian J Ophthalmol. 2021.</a><br>
+      [17] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8482902/" target="_blank" rel="noopener">Outcomes of vitreoretinal surgery in retinal detachment associated with MGDA. 2021.</a><br>
       <br>
       <strong>2024 新进展 Novel Advances：</strong><br>
-      [18] Rapid Resolution of Serous Retinal Detachment in MGDA With Oral Acetazolamide Treatment. Am J Ophthalmol Case Rep. 2024;PubMed 38917399.<br>
-      [19] Vitrectomy Combined With Gas Tamponade for MGS With Rhegmatogenous Retinal Detachment: A Case Report. Front Med. 2024;PMC11887515.<br>
-      [20] Management of Retinal Detachment Associated with Morning Glory Disc Syndrome (Human Amniotic Membrane Patch). Case Rep Ophthalmol. 2024;12(2):457.<br>
+      [18] <a href="https://pubmed.ncbi.nlm.nih.gov/38917399/" target="_blank" rel="noopener">Rapid Resolution of Serous Retinal Detachment in MGDA With Oral Acetazolamide Treatment. Am J Ophthalmol Case Rep. 2024.</a><br>
+      [19] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11887515/" target="_blank" rel="noopener">Vitrectomy Combined With Gas Tamponade for MGS With Rhegmatogenous Retinal Detachment: A Case Report. Front Med. 2024.</a><br>
+      [20] <a href="https://karger.com/cop/article/12/2/457/820638/Management-of-Retinal-Detachment-Associated-with" target="_blank" rel="noopener">Management of Retinal Detachment Associated with Morning Glory Disc Syndrome (Human Amniotic Membrane Patch). Case Rep Ophthalmol. 2024;12(2):457.</a><br>
       <br>
       <strong>并发症与机制研究：</strong><br>
-      [21] Choroidal Neovascularization Associated with MGS: A Case Report. Fortune J Health Sci. Bevacizumab Treatment.<br>
-      [22] Clinical characteristics and treatment of 22 eyes of MGS associated with PHPV. PMC3786642.<br>
-      [23] Parsa CF, Robert MP. Thromboembolism and congenital malformations: from MGS to PHACE syndrome. J Neuroophthalmol. 2013;33(2):170-173.<br>
-      [24] Rehabilitation on functional amblyopia in Morning Glory Syndrome. PubMed 18268439.
+      [21] <a href="https://www.fortunejournals.com/articles/choroidal-neovascularization-associated-with-morning-glory-syndrome-a-case-report.html" target="_blank" rel="noopener">Choroidal Neovascularization Associated with MGS: A Case Report — Bevacizumab Treatment. Fortune J Health Sci.</a><br>
+      [22] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3786642/" target="_blank" rel="noopener">Clinical characteristics and treatment of 22 eyes of MGS associated with PHPV. 2013.</a><br>
+      [23] <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Parsa+thromboembolism+morning+glory+PHACE+2013" target="_blank" rel="noopener">Parsa CF, Robert MP. Thromboembolism and congenital malformations: from MGS to PHACE syndrome. J Neuroophthalmol. 2013;33(2):170-173.</a><br>
+      [24] <a href="https://pubmed.ncbi.nlm.nih.gov/18268439/" target="_blank" rel="noopener">Rehabilitation on functional amblyopia in Morning Glory Syndrome.</a>
     </p>
   </div>
   <div class="copyright">
