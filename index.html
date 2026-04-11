@@ -1151,7 +1151,47 @@
     line-height: 1.3;
   }
 
-  /* ===== GALLERY ===== */
+  /* ===== MECHANISM DIAGRAMS ===== */
+  .mechanism-figure {
+    background: #fff;
+    border-radius: 14px;
+    padding: 1.8rem;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+    margin: 2rem 0;
+  }
+
+  .mechanism-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .mechanism-figure .fig-caption {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #e5e5e5;
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.65;
+  }
+
+  .mechanism-figure .fig-caption strong {
+    color: var(--primary);
+  }
+
+  .mechanism-figure .fig-label {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.72rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.8rem;
+  }
+
+  /* ===== NEW GALLERY ===== */
   .gallery-section {
     background: var(--primary);
     padding: 4rem 2rem;
@@ -1163,30 +1203,101 @@
   .gallery-section .section-header p { color: rgba(255,255,255,0.7); }
   .gallery-section .section-header .divider { background: var(--accent); }
 
+  .gallery-intro {
+    max-width: 1000px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.92rem;
+    line-height: 1.75;
+  }
+
   .gallery-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    max-width: 1200px; margin: 0 auto;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .gallery-item {
-    border-radius: 12px; overflow: hidden;
+    border-radius: 12px;
+    overflow: hidden;
     position: relative;
-    aspect-ratio: 16/9;
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+  }
+
+  .gallery-item.wide { grid-column: span 2; }
+
+  .gallery-img-wrap {
+    position: relative;
+    aspect-ratio: 4/3;
+    background: #000;
+    overflow: hidden;
+  }
+
+  .gallery-item.wide .gallery-img-wrap {
+    aspect-ratio: 2/1;
   }
 
   .gallery-item img {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
+  .gallery-modality {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: rgba(26,188,156,0.9);
+    color: #fff;
+    font-size: 0.68rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px);
+    font-weight: 600;
+  }
+
   .gallery-caption {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    padding: 2rem 1rem 1rem;
-    color: #fff; font-size: 0.85rem;
+    padding: 1rem 1.2rem;
+    color: #fff;
+    font-size: 0.83rem;
+    line-height: 1.5;
+  }
+
+  .gallery-caption strong {
+    display: block;
+    color: var(--accent);
+    font-size: 0.88rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .gallery-caption .credit {
+    display: block;
+    margin-top: 0.5rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.7rem;
+    font-style: italic;
+  }
+
+  .gallery-caption .credit a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(255,255,255,0.3);
+  }
+
+  .gallery-caption .credit a:hover {
+    color: var(--accent);
   }
 
   /* ===== FOOTER ===== */
@@ -1253,6 +1364,8 @@
     .support-card-grid,
     .case-cards,
     .resources-grid { grid-template-columns: 1fr; }
+    .gallery-item.wide { grid-column: span 1; }
+    .gallery-item.wide .gallery-img-wrap { aspect-ratio: 4/3; }
     .stats-row { grid-template-columns: repeat(2, 1fr); }
     .mdt-grid { grid-template-columns: repeat(2, 1fr); }
     .genetics-panel { grid-template-columns: 1fr; }
@@ -1389,6 +1502,19 @@
           <p>每分钟2-3次节律性收缩，与平滑肌细胞有关</p>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="mechanism-figure">
+    <span class="fig-label">图解 · 解剖对比</span>
+    <img src="images/mgs_mechanism_anatomy.png" alt="正常眼 vs 牵牛花综合征眼的解剖对比示意图">
+    <div class="fig-caption">
+      <strong>图 1 · 正常眼 vs 牵牛花综合征眼解剖对比。</strong>
+      左侧为正常眼矢状面：视神经从眼球后极平坦处穿出，视盘形态正常。
+      右侧为 MGS 眼：后极部出现明显的<strong>漏斗状凹陷</strong>（Funnel Excavation），
+      视盘位于凹陷底部并被<strong>白色胶质组织</strong>（Glial Tuft）覆盖，
+      视神经周围蛛网膜下腔与视网膜下腔之间存在异常通道（蓝色虚线箭头表示 <strong>CSF Pathway</strong>），
+      这正是浆液性视网膜脱离的病理学基础。
     </div>
   </div>
 </section>
@@ -1574,6 +1700,18 @@
       <p>MGS最重要的眼部并发症及其处理</p>
       <div class="divider"></div>
     </div>
+    <div class="mechanism-figure">
+      <span class="fig-label">图解 · 脱离机制</span>
+      <img src="images/mgs_mechanism_rd.png" alt="MGS 视网膜脱离的四种机制示意图">
+      <div class="fig-caption">
+        <strong>图 2 · MGS 相关视网膜脱离的四种机制。</strong>
+        ① <strong>CSF 渗漏 (CSF Leak)：</strong>脑脊液经蛛网膜下腔—视网膜下腔异常通道进入视网膜下方；
+        ② <strong>孔源性 (Retinal Break)：</strong>视盘边缘裂隙样裂孔使玻璃体腔与视网膜下腔直接相通；
+        ③ <strong>牵引性 (Traction)：</strong>中央胶质组织收缩牵拉视网膜造成裂孔或抬离；
+        ④ <strong>渗出性 (Exudation)：</strong>视盘周围新生血管渗漏液体积聚于视网膜下。
+      </div>
+    </div>
+
     <div class="complication-hero">
       <div class="big-stat">
         <span class="number">30-38%</span>
@@ -2243,23 +2381,136 @@
 <!-- GALLERY -->
 <section class="gallery-section" id="gallery">
   <div class="section-header">
-    <h2>宣传图片</h2>
-    <p>AI生成的医学教育宣传素材</p>
+    <h2>多模态真实影像图库</h2>
+    <p>Multi-modal Clinical Imaging Gallery · 所有图片均来自同行评审文献与 Wikimedia Commons</p>
     <div class="divider"></div>
   </div>
+  <div class="gallery-intro">
+    以下 10 张影像来自 <strong>四个不同的真实 MGS 患者病例</strong>，涵盖眼底摄影、OCT、OCTA、FFA、MRI、MRA 等 6 种检查模态，以及面部表型、机理示意图。所有图片均在 <strong>Creative Commons 许可</strong>下使用，点击署名可跳转原始来源。
+  </div>
+
   <div class="gallery-grid">
+
     <div class="gallery-item">
-      <img src="images/mgs_real_fundus.png" alt="真实牵牛花综合征眼底照片">
-      <div class="gallery-caption">真实 MGS 眼底照片（3 岁患儿）<br>© Yoanmb · CC BY-SA 4.0</div>
+      <div class="gallery-img-wrap">
+        <span class="gallery-modality">眼底摄影 · Fundus</span>
+        <img src="images/mgs_real_fundus.png" alt="MGS 眼底照片 — 3 岁女童">
+      </div>
+      <div class="gallery-caption">
+        <strong>典型 MGS 眼底 · 3 岁女童</strong>
+        漏斗状凹陷、中央白色胶质组织、放射状血管、视盘周围色素环——教科书级别的牵牛花样外观。
+        <span class="credit">© <a href="https://commons.wikimedia.org/wiki/File:Morning_glory_syndrome_retinography.png" target="_blank" rel="noopener">Yoanmb / Wikimedia</a> · CC BY-SA 4.0</span>
+      </div>
     </div>
+
     <div class="gallery-item">
-      <img src="images/mgs_awareness_banner.png" alt="MGS宣传横幅" onerror="this.parentElement.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.5);font-size:0.9rem&quot;>医学宣传横幅</div>'">
-      <div class="gallery-caption">早期发现 守护视力</div>
+      <div class="gallery-img-wrap">
+        <span class="gallery-modality">OCT B-scan</span>
+        <img src="images/mgs_real_oct.png" alt="MGS OCT 剖面 B 扫描">
+      </div>
+      <div class="gallery-caption">
+        <strong>OCT 横断面 · 漏斗状凹陷</strong>
+        同一患儿的频域 OCT 扫描，清晰呈现后极部视网膜向后凹陷形成的锥形空腔——是 MGS 最具特征性的 OCT 表现。
+        <span class="credit">© <a href="https://commons.wikimedia.org/wiki/File:Morning_glory_syndrom_OCT.png" target="_blank" rel="noopener">Yoanmb / Wikimedia</a> · CC BY-SA 4.0</span>
+      </div>
     </div>
+
     <div class="gallery-item">
-      <img src="images/mgs_multidisciplinary.png" alt="多学科协作" onerror="this.parentElement.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.5);font-size:0.9rem&quot;>多学科协作管理示意图</div>'">
-      <div class="gallery-caption">多学科协作管理</div>
+      <div class="gallery-img-wrap">
+        <span class="gallery-modality">OCTA</span>
+        <img src="images/mgs_real_octa.png" alt="MGS OCT 血管造影">
+      </div>
+      <div class="gallery-caption">
+        <strong>OCT 血管造影</strong>
+        OCTA 显示视盘周围放射状血管网络的分布，可无创评估视盘区域的微血管灌注状态。
+        <span class="credit">© <a href="https://commons.wikimedia.org/wiki/File:Morning_glory_syndrom_OCTA.png" target="_blank" rel="noopener">Yoanmb / Wikimedia</a> · CC BY-SA 4.0</span>
+      </div>
     </div>
+
+    <div class="gallery-item wide">
+      <div class="gallery-img-wrap">
+        <span class="gallery-modality">眼底收缩动态 + OCT</span>
+        <img src="images/mgs_pmc3490062_fig1.jpg" alt="MGS 视盘收缩运动 + OCT">
+      </div>
+      <div class="gallery-caption">
+        <strong>视盘收缩运动动态记录（a, b）+ 频域 OCT 剖面（c）</strong>
+        面板 a、b 分别拍摄于视盘收缩相与扩张相，可见视盘直径显著变化；面板 c 显示典型的后极部漏斗状凹陷与视网膜抬高。
+        <span class="credit">© <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3490062/" target="_blank" rel="noopener">Cennamo G et al., Doc Ophthalmol 2012</a> · CC BY</span>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-img-wrap">
+        <span class="gallery-modality">FFA · 荧光造影</span>
+        <img src="images/mgs_pmc3490062_fig2.jpg" alt="MGS FFA 荧光血管造影">
+      </div>
+      <div class="gallery-caption">
+        <strong>荧光素眼底血管造影（FFA）</strong>
+        箭头指向中央胶质组织区和周边视盘血管走行，可评估视盘渗漏与周边视网膜无灌注区。
+        <span class="credit">© <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3490062/" target="_blank" rel="noopener">Cennamo G et al., Doc Ophthalmol 2012</a> · CC BY</span>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-img-wrap">
+        <span class="gallery-modality">眼底摄影 · 对比</span>
+        <img src="images/mgs_pmc7586549_fig3.jpg" alt="MGS 右眼 vs 正常左眼对比">
+      </div>
+      <div class="gallery-caption">
+        <strong>右眼 MGS vs 左眼正常</strong>
+        同一患者双眼对比：右眼（R）呈现典型牵牛花样视盘，左眼（L）形态与血管分布完全正常。凸显 MGS ~85% 单侧发病的特点。
+        <span class="credit">© <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7586549/" target="_blank" rel="noopener">J Family Med Prim Care 2020</a> · CC BY-NC-SA</span>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-img-wrap">
+        <span class="gallery-modality">眼底摄影 · 另一病例</span>
+        <img src="images/mgs_pmc6213674_fig2.jpg" alt="MGS 另一病例眼底">
+      </div>
+      <div class="gallery-caption">
+        <strong>MGS 眼底 · 合并烟雾病患者</strong>
+        一例合并烟雾血管病和面部血管瘤的 MGS 病例眼底。显著视盘扩大、中央胶质组织和放射状血管纹路。
+        <span class="credit">© <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6213674/" target="_blank" rel="noopener">Indian J Ophthalmol 2018</a> · CC BY-NC-SA</span>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-img-wrap">
+        <span class="gallery-modality">MRI 脑 / 眶</span>
+        <img src="images/mgs_pmc7586549_fig4.jpg" alt="MGS MRI 脑部矢状位">
+      </div>
+      <div class="gallery-caption">
+        <strong>脑与眼眶 MRI · 矢状面</strong>
+        T2 加权 MRI 矢状面清晰显示右眼后极部的漏斗状凹陷（红色箭头），并可见视神经远端异常（黄色箭头）。这是 MGS 的特征性神经影像学表现。
+        <span class="credit">© <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7586549/" target="_blank" rel="noopener">J Family Med Prim Care 2020</a> · CC BY-NC-SA</span>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-img-wrap">
+        <span class="gallery-modality">MRA 脑血管</span>
+        <img src="images/mgs_pmc6213674_fig3.jpg" alt="MGS MRA 烟雾病">
+      </div>
+      <div class="gallery-caption">
+        <strong>MRA · 烟雾血管病</strong>
+        脑磁共振血管造影显示颅内动脉末端狭窄和侧支循环"puff of smoke"样异常血管网——这是与 MGS 强相关的烟雾病特征，是 MGS 患者必须筛查的严重并发症。
+        <span class="credit">© <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6213674/" target="_blank" rel="noopener">Indian J Ophthalmol 2018</a> · CC BY-NC-SA</span>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-img-wrap">
+        <span class="gallery-modality">面部表型</span>
+        <img src="images/mgs_pmc6213674_fig1.jpg" alt="MGS 相关面部血管瘤">
+      </div>
+      <div class="gallery-caption">
+        <strong>面部毛细血管瘤（下唇）</strong>
+        同一 MGS + 烟雾病患儿的面部表现，下唇毛细血管瘤。面部血管畸形 + MGS 时应警惕 <strong>PHACE 综合征</strong>。
+        <span class="credit">© <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6213674/" target="_blank" rel="noopener">Indian J Ophthalmol 2018</a> · CC BY-NC-SA</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -2302,11 +2553,21 @@
     </p>
   </div>
   <div class="copyright">
-    <p style="margin-bottom: 0.8rem;">
-      <strong>图片来源 · Image Credits：</strong>
-      眼底临床照片 © <a href="https://commons.wikimedia.org/wiki/File:Morning_glory_syndrome_retinography.png" target="_blank" rel="noopener" style="color: var(--accent);">Yoanmb / Wikimedia Commons</a>
-      （<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color: var(--accent);">CC BY-SA 4.0</a>）· 宣传插图由本项目作者基于 PIL 与 AI 辅助生成
-    </p>
+    <div style="margin-bottom: 1rem; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+      <p style="margin-bottom: 0.5rem; color: var(--accent); font-weight: 600;">图片来源 · Image Credits</p>
+      <p style="font-size: 0.72rem; line-height: 1.85; color: rgba(255,255,255,0.55);">
+        <strong>Wikimedia Commons</strong>（<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color: var(--accent);">CC BY-SA 4.0</a>）— 眼底摄影 / OCT / OCTA 由 © <a href="https://commons.wikimedia.org/wiki/User:Yoanmb" target="_blank" rel="noopener" style="color: var(--accent);">Yoanmb (Dr. Yann Mboussou)</a> 创作 ·
+        <a href="https://commons.wikimedia.org/wiki/Category:Morning_glory_disc_anomaly" target="_blank" rel="noopener" style="color: var(--accent);">原始分类链接</a><br>
+        <strong>PMC3490062</strong>（CC BY）— 视盘收缩运动 + OCT + FFA © Cennamo G, Breve MA. Morning glory disc anomaly with contractile movements. <em>Doc Ophthalmol</em>. 2012 ·
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3490062/" target="_blank" rel="noopener" style="color: var(--accent);">PMC 链接</a><br>
+        <strong>PMC6213674</strong>（CC BY-NC-SA）— 面部血管瘤 / 眼底 / MRA © Indian J Ophthalmol. Morning glory disc anomaly and facial hemangiomas in a girl with moyamoya syndrome. 2018 ·
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6213674/" target="_blank" rel="noopener" style="color: var(--accent);">PMC 链接</a><br>
+        <strong>PMC7586549</strong>（CC BY-NC-SA）— 双眼对比 / 脑 MRI © J Family Med Prim Care. Unusual association of Morning Glory Syndrome with chronic myeloid leukemia. 2020 ·
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7586549/" target="_blank" rel="noopener" style="color: var(--accent);">PMC 链接</a><br>
+        <strong>机理示意图</strong> — 由本项目作者使用 Google Nano Banana 2 (gemini-3.1-flash-image-preview) 生成 · <strong>宣传海报</strong> — 基于 Python PIL 本地渲染 ·
+        所有引用图片已严格遵守原始许可协议。
+      </p>
+    </div>
     <p>本网页仅供医学教育参考 · For Medical Education Reference Only<br>
     牵牛花综合征临床综述 · Morning Glory Syndrome Clinical Review · 2026</p>
   </div>
